@@ -2,13 +2,13 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
 public class Main extends BasicGame {
 
 	public Main() {
 		super("Super Game");
-		System.out.println("Herro");
 	}
 
 	@Override
@@ -18,11 +18,14 @@ public class Main extends BasicGame {
 
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
+		Input input = gc.getInput();
 		
+		if(input.isKeyDown(Input.KEY_ESCAPE))
+			System.exit(0);
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		
+			
 	}
 
 	public static void main(String[] args) throws SlickException {
