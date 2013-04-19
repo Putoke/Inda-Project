@@ -3,6 +3,7 @@ import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
@@ -26,7 +27,7 @@ public class Game extends BasicGame {
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-			
+		g.drawImage(new Image("/Sprites/background.png"), 0, 0);
 	}
 
 	public static void main(String[] args) throws SlickException {
