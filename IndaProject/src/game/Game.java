@@ -25,12 +25,12 @@ public class Game extends BasicGame {
 	public void init(GameContainer gc) throws SlickException {
 		entities = new ArrayList<Entity>();
 		
-		Entity background = new Entity("earth");
+		Entity background = new Entity("background");
 		background.AddComponent(new ImageRenderComponent("BackgroundRender",
 				new Image("/Sprites/background.png")));
 		entities.add(background);
 		
-		Entity player = new Entity("hero");
+		Entity player = new Entity("player");
 		player.AddComponent(new ImageRenderComponent("PlayerRender",
 				new Image("/Sprites/Character.png")));
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement") );
