@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -13,8 +15,7 @@ import components.*;
 
 public class Game extends BasicGame {
 	
-	private Entity background = null;
-	private Entity player = null;
+	private ArrayList<Entity> entities;
 
 	public Game() {
 		super("Super Game");
@@ -22,20 +23,27 @@ public class Game extends BasicGame {
 
 	@Override
 	public void init(GameContainer gc) throws SlickException {
-		background = new Entity("earth");
+		entities = new ArrayList<Entity>();
+		
+		Entity background = new Entity("earth");
 		background.AddComponent(new ImageRenderComponent("BackgroundRender",
 				new Image("/Sprites/background.png")));
+		entities.add(background);
 		
-		player = new Entity("hero");
+		Entity player = new Entity("hero");
 		player.AddComponent(new ImageRenderComponent("PlayerRender",
 				new Image("/Sprites/Character.png")));
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement") );
 		player.setPosition(new Vector2f(400, 300));
+		entities.add(player);
 	}
 
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		player.update(gc, delta);
+		
+		for(Entity e: entities){
+			e.update(gc, delta);
+		}
 		
 		// get input to exit game
 		Input input = gc.getInput();
@@ -44,8 +52,9 @@ public class Game extends BasicGame {
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		background.render(gc, g);
-		player.render(gc, g);
+		for(Entity e: entities){
+			e.render(gc, g);
+		}
 	}
 
 	public static void main(String[] args) throws SlickException {
