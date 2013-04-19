@@ -1,4 +1,5 @@
 package game;
+
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -10,7 +11,7 @@ import org.newdawn.slick.SlickException;
 import components.*;
 
 public class Game extends BasicGame {
-	
+
 	Entity background = null;
 
 	public Game() {
@@ -20,17 +21,16 @@ public class Game extends BasicGame {
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		background = new Entity("earth");
-		background.AddComponent(new ImageRenderComponent("BackgroundRender", new Image("/Sprites/background.png")) );
+		background.AddComponent(new ImageRenderComponent("BackgroundRender",
+				new Image("/Sprites/background.png")));
 	}
 
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		
-		
-		
+
 		// get input to exit game
 		Input input = gc.getInput();
-		if(input.isKeyDown(Input.KEY_ESCAPE))
+		if (input.isKeyDown(Input.KEY_ESCAPE))
 			System.exit(0);
 	}
 
