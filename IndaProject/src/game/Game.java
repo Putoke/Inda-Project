@@ -7,7 +7,11 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
+import components.*;
+
 public class Game extends BasicGame {
+	
+	Entity background = null;
 
 	public Game() {
 		super("Super Game");
@@ -15,19 +19,23 @@ public class Game extends BasicGame {
 
 	@Override
 	public void init(GameContainer gc) throws SlickException {
-		
+		background = new Entity("earth");
+		background.AddComponent(new ImageRenderComponent("BackgroundRender", new Image("/Sprites/background.png")) );
 	}
 
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		Input input = gc.getInput();
 		
+		
+		
+		// get input to exit game
+		Input input = gc.getInput();
 		if(input.isKeyDown(Input.KEY_ESCAPE))
 			System.exit(0);
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		g.drawImage(new Image("/Sprites/background.png"), 0, 0);
+		background.render(gc, g);
 	}
 
 	public static void main(String[] args) throws SlickException {
