@@ -2,7 +2,6 @@ package components;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.state.StateBasedGame;
 
 public abstract class RenderComponent extends Component {
 
@@ -10,5 +9,5 @@ public abstract class RenderComponent extends Component {
 		this.id = id;
 	}
 
-	public abstract void render(GameContainer gc, StateBasedGame sb, Graphics gr);
+	public abstract void render(GameContainer gc, Graphics gr);
 }
