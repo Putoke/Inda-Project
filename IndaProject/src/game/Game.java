@@ -6,9 +6,9 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 
-public class Main extends BasicGame {
+public class Game extends BasicGame {
 
-	public Main() {
+	public Game() {
 		super("Super Game");
 	}
 
@@ -30,7 +30,7 @@ public class Main extends BasicGame {
 	}
 
 	public static void main(String[] args) throws SlickException {
-		AppGameContainer app = new AppGameContainer(new Main());
+		AppGameContainer app = new AppGameContainer(new Game());
 
 		app.setDisplayMode(800, 600, false);
 		app.start();
