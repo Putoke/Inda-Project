@@ -11,7 +11,7 @@ import components.*;
 
 public class Game extends BasicGame {
 	
-	Entity background = null;
+	private Entity background = null;
 
 	public Game() {
 		super("Super Game");
