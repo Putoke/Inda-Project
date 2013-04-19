@@ -53,7 +53,7 @@ public class Game extends BasicGame {
 
 		app.setDisplayMode(800, 600, false);
 		app.setVSync(false);
-		app.setTargetFrameRate(100);
+		app.setTargetFrameRate(60);
 		app.start();
 	}
 }
