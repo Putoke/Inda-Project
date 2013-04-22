@@ -43,7 +43,7 @@ public class Entity {
 		for (Component comp : components) {
 			if (comp.getID().equalsIgnoreCase(id))
 				return comp;
-		}ssh://git@github.com/username/repo.git
+		}
 
 		return null;
 	}
