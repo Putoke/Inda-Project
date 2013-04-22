@@ -46,7 +46,7 @@ public final class Controller {
 	}
 	
 	public static boolean isShortcutPressed(String action, Input input){
-		if(!input.isKeyDown(shortcuts.get(action))){
+		if(!shortcuts.containsKey(action) || !input.isKeyPressed(shortcuts.get(action))){
 			return false;
 		}
 		return true;
@@ -64,7 +64,8 @@ public final class Controller {
 		addP1Button("RightAlt", Input.KEY_RIGHT);
 		
 		shortcuts = new HashMap<String, Integer>();
-		addShortcut("Exit", Input.KEY_ESCAPE);
+		//addShortcut("Exit", Input.KEY_ESCAPE);
 		addShortcut("Fullscreen", Input.KEY_F);
+		addShortcut("Pause", Input.KEY_ESCAPE);
 	}
 }

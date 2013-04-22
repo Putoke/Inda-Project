@@ -53,6 +53,13 @@ public class Game extends BasicGame {
 			System.exit(0);
 		if(Controller.isShortcutPressed("Fullscreen", input))
 			app.setFullscreen(!app.isFullscreen());
+		if(Controller.isShortcutPressed("Pause", input)){
+			if(app.isPaused()){
+				app.resume();
+			} else {
+				app.pause();
+			}
+		}
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
