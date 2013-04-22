@@ -14,8 +14,9 @@ import org.newdawn.slick.geom.Vector2f;
 import components.*;
 
 public class Game extends BasicGame {
-	
+
 	private ArrayList<Entity> entities;
+	private static AppGameContainer app;
 
 	public Game() {
 		super("Super Game");
@@ -40,25 +41,27 @@ public class Game extends BasicGame {
 
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
-		
-		for(Entity e: entities){
+
+		for (Entity e : entities) {
 			e.update(gc, delta);
 		}
 		
 		// get input to exit game
 		Input input = gc.getInput();
-		if (input.isKeyDown(Input.KEY_ESCAPE))
+		if (Controller.isShortcutPressed("Exit", input))
 			System.exit(0);
+		if(Controller.isShortcutPressed("Fullscreen", input))
+			app.setFullscreen(!app.isFullscreen());
 	}
 
 	public void render(GameContainer gc, Graphics g) throws SlickException {
-		for(Entity e: entities){
+		for (Entity e : entities) {
 			e.render(gc, g);
 		}
 	}
 
 	public static void main(String[] args) throws SlickException {
-		AppGameContainer app = new AppGameContainer(new Game());
+		 app = new AppGameContainer(new Game());
 
 		app.setDisplayMode(800, 600, false);
 		app.setVSync(false);

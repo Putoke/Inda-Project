@@ -1,5 +1,7 @@
 package components;
 
+import game.Controller;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Vector2f;
@@ -29,15 +31,15 @@ public class PlayerMovementComponent extends Component {
 
 		Input input = gc.getInput();
 
-		if (input.isKeyDown(Input.KEY_A) || input.isKeyDown(Input.KEY_LEFT)) {
+		if ( Controller.isP1ButtonPressed("Left", input) || Controller.isP1ButtonPressed("LeftAlt", input)) {
 			rotation += -0.2f * delta;
 		}
 
-		if (input.isKeyDown(Input.KEY_D) || input.isKeyDown(Input.KEY_RIGHT)) {
+		if (Controller.isP1ButtonPressed("Right", input) || Controller.isP1ButtonPressed("RightAlt", input)) {
 			rotation += 0.2f * delta;
 		}
 
-		if (input.isKeyDown(Input.KEY_W) || input.isKeyDown(Input.KEY_UP))
+		if (Controller.isP1ButtonPressed("Up", input) || Controller.isP1ButtonPressed("UpAlt", input))
 
 		{
 			float hip = 0.4f * delta;
@@ -48,7 +50,7 @@ public class PlayerMovementComponent extends Component {
 					* java.lang.Math.cos(java.lang.Math.toRadians(rotation));
 		}
 
-		if (input.isKeyDown(Input.KEY_S) || input.isKeyDown(Input.KEY_DOWN))
+		if (Controller.isP1ButtonPressed("Down", input) || Controller.isP1ButtonPressed("DownAlt", input))
 
 		{
 			float hip = -0.4f * delta;
