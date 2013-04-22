@@ -24,6 +24,7 @@ public class Game extends BasicGame {
 
 	@Override
 	public void init(GameContainer gc) throws SlickException {
+		Controller.init();
 		entities = new ArrayList<Entity>();
 		
 		Entity background = new Entity("background");
