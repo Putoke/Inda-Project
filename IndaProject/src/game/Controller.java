@@ -9,6 +9,7 @@ public final class Controller {
 	private static HashMap<String, Integer> p1Buttons;
 	private static HashMap<String, Integer> shortcuts;
 	
+	
 	public static boolean changeP1Button(String action, int button){
 		if(!p1Buttons.containsKey(action) || p1Buttons.containsValue(button)){
 			return false;
