@@ -64,7 +64,7 @@ public final class Controller {
 		addP1Button("RightAlt", Input.KEY_RIGHT);
 
 		shortcuts = new HashMap<String, Integer>();
-		addShortcut("Fullscreen", Input.KEY_F);
+		addShortcut("Fullscreen", Input.KEY_F11);
 		addShortcut("Menu", Input.KEY_ESCAPE);
 	}
 }
