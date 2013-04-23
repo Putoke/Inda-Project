@@ -7,6 +7,8 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class MenuState extends BasicGameState {
 
@@ -34,7 +36,7 @@ public class MenuState extends BasicGameState {
 
 		Input input = gc.getInput();
 		if (input.isKeyPressed(Input.KEY_ESCAPE)) {
-			sb.enterState(InGameState.ID);
+			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black, 250), null);
 		}
 
 	}
