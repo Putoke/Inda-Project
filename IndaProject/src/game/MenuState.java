@@ -17,7 +17,6 @@ public class MenuState extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb)
 			throws SlickException {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -26,9 +25,9 @@ public class MenuState extends BasicGameState {
 			throws SlickException {
 		g.setColor(Color.white);
 		g.drawString("MENU", 350, 100);
-		g.drawString("1. Test", 350, 200);
-	    g.drawString("2. Test", 350, 250);
-	    g.drawString("3. Test", 350, 300);
+		g.drawString("1. New Game", 350, 200);
+	    g.drawString("2. Options", 350, 250);
+	    g.drawString("3. Exit", 350, 300);
 		
 	}
 
@@ -45,7 +44,6 @@ public class MenuState extends BasicGameState {
 
 	@Override
 	public int getID() {
-		// TODO Auto-generated method stub
 		return ID;
 	}
 

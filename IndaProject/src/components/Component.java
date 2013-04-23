@@ -1,6 +1,8 @@
 package components;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.state.StateBasedGame;
+
 import game.Entity;
 
 public abstract class Component {
@@ -16,5 +18,5 @@ public abstract class Component {
 		this.owner = owner;
 	}
 	
-	public abstract void update(GameContainer gc, int delta);
+	public abstract void update(GameContainer gc, StateBasedGame sb, int delta);
 }

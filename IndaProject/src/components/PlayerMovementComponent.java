@@ -5,6 +5,7 @@ import game.Controller;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Vector2f;
+import org.newdawn.slick.state.StateBasedGame;
 
 public class PlayerMovementComponent extends Component {
 
@@ -24,7 +25,7 @@ public class PlayerMovementComponent extends Component {
 	}
 
 	@Override
-	public void update(GameContainer gc, int delta) {
+	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		float rotation = owner.getRotation();
 		float scale = owner.getScale();
 		Vector2f position = owner.getPosition();

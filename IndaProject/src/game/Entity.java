@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Vector2f;
+import org.newdawn.slick.state.StateBasedGame;
 
 import components.Component;
 import components.RenderComponent;
@@ -76,14 +77,14 @@ public class Entity {
 		this.scale = scale;
 	}
 
-	public void update(GameContainer gc, int delta) {
+	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		for (Component component : components) {
-			component.update(gc, delta);
+			component.update(gc, sb, delta);
 		}
 	}
 
-	public void render(GameContainer gc,Graphics gr) {
+	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		if (renderComponent != null)
-			renderComponent.render(gc, gr);
+			renderComponent.render(gc, sb, gr);
 	}
 }

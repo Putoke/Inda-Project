@@ -42,7 +42,7 @@ public class InGameState extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
 		for (Entity e : entities) {
-			e.render(gc, g);
+			e.render(gc, sb, g);
 		}
 		
 	}
@@ -51,7 +51,7 @@ public class InGameState extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame sb, int delta)
 			throws SlickException {
 		for (Entity e : entities) {
-			e.update(gc, delta);
+			e.update(gc, sb, delta);
 		}
 		
 		Input input = gc.getInput();
