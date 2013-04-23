@@ -8,7 +8,6 @@ public final class Controller {
 	
 	private static HashMap<String, Integer> p1Buttons;
 	private static HashMap<String, Integer> shortcuts;
-	//comment
 	
 	public static boolean changeP1Button(String action, int button){
 		if(!p1Buttons.containsKey(action) || p1Buttons.containsValue(button)){
@@ -64,8 +63,7 @@ public final class Controller {
 		addP1Button("RightAlt", Input.KEY_RIGHT);
 		
 		shortcuts = new HashMap<String, Integer>();
-		//addShortcut("Exit", Input.KEY_ESCAPE);
 		addShortcut("Fullscreen", Input.KEY_F);
-		addShortcut("Pause", Input.KEY_ESCAPE);
+		addShortcut("Menu", Input.KEY_ESCAPE);
 	}
 }
