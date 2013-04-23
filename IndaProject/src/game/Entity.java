@@ -17,7 +17,7 @@ public class Entity {
 	Vector2f position;
 	float scale;
 	float rotation;
-//
+	//
 	RenderComponent renderComponent = null;
 
 	ArrayList<Component> components = null;

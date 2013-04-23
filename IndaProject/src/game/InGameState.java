@@ -14,28 +14,27 @@ import org.newdawn.slick.state.StateBasedGame;
 import components.*;
 
 public class InGameState extends BasicGameState {
-	
+
 	public static final int ID = 1;
 	private ArrayList<Entity> entities;
 
 	@Override
-	public void init(GameContainer gc, StateBasedGame sb)
-			throws SlickException {
+	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
 		Controller.init();
 		entities = new ArrayList<Entity>();
-		
+
 		Entity background = new Entity("background");
 		background.AddComponent(new ImageRenderComponent("BackgroundRender",
 				new Image("/Sprites/background.png")));
 		entities.add(background);
-		
+
 		Entity player = new Entity("player");
-		player.AddComponent(new ImageRenderComponent("PlayerRender",
-				new Image("/Sprites/Character.png")));
-		player.AddComponent(new PlayerMovementComponent("PlayerMovement") );
+		player.AddComponent(new ImageRenderComponent("PlayerRender", new Image(
+				"/Sprites/Character.png")));
+		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
 		player.setPosition(new Vector2f(400, 300));
 		entities.add(player);
-		
+
 	}
 
 	@Override
@@ -44,7 +43,7 @@ public class InGameState extends BasicGameState {
 		for (Entity e : entities) {
 			e.render(gc, sb, g);
 		}
-		
+
 	}
 
 	@Override
@@ -53,17 +52,16 @@ public class InGameState extends BasicGameState {
 		for (Entity e : entities) {
 			e.update(gc, sb, delta);
 		}
-		
+
 		Input input = gc.getInput();
 		if (Controller.isShortcutPressed("Exit", input))
 			System.exit(0);
-		if(Controller.isShortcutPressed("Fullscreen", input))
+		if (Controller.isShortcutPressed("Fullscreen", input))
 			Game.app.setFullscreen(!Game.app.isFullscreen());
-		if(Controller.isShortcutPressed("Menu", input)){
+		if (Controller.isShortcutPressed("Menu", input)) {
 			sb.enterState(MenuState.ID);
 		}
 	}
-		
 
 	@Override
 	public int getID() {

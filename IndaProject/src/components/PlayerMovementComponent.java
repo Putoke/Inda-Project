@@ -32,15 +32,18 @@ public class PlayerMovementComponent extends Component {
 
 		Input input = gc.getInput();
 
-		if ( Controller.isP1ButtonPressed("Left", input) || Controller.isP1ButtonPressed("LeftAlt", input)) {
+		if (Controller.isP1ButtonPressed("Left", input)
+				|| Controller.isP1ButtonPressed("LeftAlt", input)) {
 			rotation += -0.2f * delta;
 		}
 
-		if (Controller.isP1ButtonPressed("Right", input) || Controller.isP1ButtonPressed("RightAlt", input)) {
+		if (Controller.isP1ButtonPressed("Right", input)
+				|| Controller.isP1ButtonPressed("RightAlt", input)) {
 			rotation += 0.2f * delta;
 		}
 
-		if (Controller.isP1ButtonPressed("Up", input) || Controller.isP1ButtonPressed("UpAlt", input))
+		if (Controller.isP1ButtonPressed("Up", input)
+				|| Controller.isP1ButtonPressed("UpAlt", input))
 
 		{
 			float hip = 0.4f * delta;
@@ -51,7 +54,8 @@ public class PlayerMovementComponent extends Component {
 					* java.lang.Math.cos(java.lang.Math.toRadians(rotation));
 		}
 
-		if (Controller.isP1ButtonPressed("Down", input) || Controller.isP1ButtonPressed("DownAlt", input))
+		if (Controller.isP1ButtonPressed("Down", input)
+				|| Controller.isP1ButtonPressed("DownAlt", input))
 
 		{
 			float hip = -0.4f * delta;
