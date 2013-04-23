@@ -10,7 +10,7 @@ public class Game extends StateBasedGame {
 	public static AppGameContainer app;
 
 	public Game() {
-		super("best game");
+		super("ernst äger");
 	}
 
 	@Override
