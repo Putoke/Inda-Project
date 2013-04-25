@@ -19,7 +19,6 @@ public class Entity {
 	float rotation;
 	//
 	RenderComponent renderComponent = null;
-
 	ArrayList<Component> components = null;
 
 	public Entity(String id) {
