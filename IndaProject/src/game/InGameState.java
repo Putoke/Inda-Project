@@ -22,7 +22,6 @@ public class InGameState extends BasicGameState {
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
-		Controller.init();
 		entities = new ArrayList<Entity>();
 
 		Entity background = new Entity("background");

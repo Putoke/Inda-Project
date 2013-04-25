@@ -11,12 +11,14 @@ public class Game extends StateBasedGame {
 
 	public Game() {
 		super("Redneck Simulator 2 Super HD Turbo Remix");
+		Controller.init();
 	}
 
 	@Override
 	public void initStatesList(GameContainer arg0) throws SlickException {
 		addState(new MenuState());
 		addState(new InGameState());
+		
 		
 
 	}
