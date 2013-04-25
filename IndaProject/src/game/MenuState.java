@@ -21,10 +21,13 @@ public class MenuState extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
 		g.setColor(Color.white);
-		g.drawString("MENU", 350, 100);
-		g.drawString("1. New Game", 350, 200);
-		g.drawString("2. Options", 350, 250);
-		g.drawString("3. Exit", 350, 300);
+		int centerHeight = Game.app.getHeight()/2;
+		int centerWidth = Game.app.getWidth()/2;
+		
+		g.drawString("MENU", centerWidth-35, centerHeight - 125);
+		g.drawString("New Game", centerWidth-50, centerHeight - 75);
+		g.drawString("Settings", centerWidth-50, centerHeight - 25);
+		g.drawString("Exit", centerWidth-50, centerHeight + 25);
 
 	}
 
