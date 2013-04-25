@@ -10,7 +10,7 @@ public class Game extends StateBasedGame {
 	public static AppGameContainer app;
 
 	public Game() {
-		super("ernst äger");
+		super("Redneck Simulator 2 Super HD Turbo Remix");
 	}
 
 	@Override
