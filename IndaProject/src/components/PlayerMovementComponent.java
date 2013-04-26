@@ -47,10 +47,8 @@ public class PlayerMovementComponent extends Component {
 		{
 			float hip = 0.4f * delta;
 
-			position.x += hip
-					* java.lang.Math.sin(java.lang.Math.toRadians(rotation));
-			position.y -= hip
-					* java.lang.Math.cos(java.lang.Math.toRadians(rotation));
+			position.x += hip * java.lang.Math.sin(java.lang.Math.toRadians(rotation));
+			position.y -= hip * java.lang.Math.cos(java.lang.Math.toRadians(rotation));
 		}
 
 		if (Controller.isP1ButtonPressed("Down", input) || Controller.isP1ButtonPressed("DownAlt", input))

@@ -25,7 +25,7 @@ public class Game extends StateBasedGame {
 	public static void main(String[] args) {
 		try {
 			app = new AppGameContainer(new Game());
-			app.setDisplayMode(1920, 1080, false);
+			app.setDisplayMode(1920, 1080, true);
 			app.setTargetFrameRate(60);
 			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
