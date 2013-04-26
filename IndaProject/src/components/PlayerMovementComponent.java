@@ -1,6 +1,7 @@
 package components;
 
 import game.Controller;
+import game.Game;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -31,33 +32,26 @@ public class PlayerMovementComponent extends Component {
 		Vector2f position = owner.getPosition();
 
 		Input input = gc.getInput();
+		
+		float mouseX = input.getMouseX();
+		float mouseY = input.getMouseY();
+		
+		rotation = (float) Math.toDegrees(Math.atan2(position.y - mouseY, position.x - mouseX)) - 90;
 
-		if (Controller.isP1ButtonPressed("Left", input)
-				|| Controller.isP1ButtonPressed("LeftAlt", input)) {
-			position.x += -0.2f * delta;
+		if (Controller.isP1ButtonPressed("Left", input) || Controller.isP1ButtonPressed("LeftAlt", input)) {
+			position.x -= 0.2f * delta;
 		}
 
-		if (Controller.isP1ButtonPressed("Right", input)
-				|| Controller.isP1ButtonPressed("RightAlt", input)) {
-			rotation += 0.2f * delta;
+		if (Controller.isP1ButtonPressed("Right", input) || Controller.isP1ButtonPressed("RightAlt", input)) {
+			position.x += 0.2f * delta;
 		}
 
-		if (Controller.isP1ButtonPressed("Up", input) || Controller.isP1ButtonPressed("UpAlt", input))
-
-		{
-			float hip = 0.4f * delta;
-
-			position.x += hip * java.lang.Math.sin(java.lang.Math.toRadians(rotation));
-			position.y -= hip * java.lang.Math.cos(java.lang.Math.toRadians(rotation));
+		if (Controller.isP1ButtonPressed("Up", input) || Controller.isP1ButtonPressed("UpAlt", input)){
+			position.y -= 0.2f * delta;
 		}
 
-		if (Controller.isP1ButtonPressed("Down", input) || Controller.isP1ButtonPressed("DownAlt", input))
-
-		{
-			float hip = -0.4f * delta;
-
-			position.x += hip * java.lang.Math.sin(java.lang.Math.toRadians(rotation));
-			position.y -= hip * java.lang.Math.cos(java.lang.Math.toRadians(rotation));
+		if (Controller.isP1ButtonPressed("Down", input) || Controller.isP1ButtonPressed("DownAlt", input)){
+			position.y += 0.2f * delta;
 		}
 
 		owner.setPosition(position);
