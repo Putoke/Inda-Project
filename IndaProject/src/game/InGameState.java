@@ -60,7 +60,7 @@ public class InGameState extends BasicGameState {
 		if (Controller.isShortcutPressed("Fullscreen", input))
 			Game.app.setFullscreen(!Game.app.isFullscreen());
 		if (Controller.isShortcutPressed("Menu", input)) {
-			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 250), null);
+			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), null);
 		}
 	}
 

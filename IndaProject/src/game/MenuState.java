@@ -64,13 +64,14 @@ public class MenuState extends BasicGameState {
 			throws SlickException {
 
 		Input input = gc.getInput();
-		if (Controller.isShortcutPressed("Menu", input)) {
+		/*if (Controller.isShortcutPressed("Menu", input)) {
 			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black, 250), null);
-		}
+		}*/
 		
 		int posX = Mouse.getX();
 		int posY = Math.abs(Mouse.getY() - Game.app.getHeight());
 		
+		// Play
 		if ( posX > buttons.get(0).getPosition().getX() && posX < buttons.get(0).getPosition().getX() + buttonImages.get(0).getWidth() 
 				&& posY > buttons.get(0).getPosition().getY() && posY < buttons.get(0).getPosition().getY()	+ buttonImages.get(0).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
@@ -78,13 +79,15 @@ public class MenuState extends BasicGameState {
 			}
 		}
 		
+		// Settings
 		if ( posX > buttons.get(1).getPosition().getX() && posX < buttons.get(1).getPosition().getX() + buttonImages.get(1).getWidth() 
 				&& posY > buttons.get(1).getPosition().getY() && posY < buttons.get(1).getPosition().getY()	+ buttonImages.get(1).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
-				sb.enterState(SettingsState.ID,new FadeOutTransition(Color.black, 250), null);
+				sb.enterState(SettingsState.ID,new FadeOutTransition(Color.black, 200), null);
 			}
 		}
 		
+		// Exit
 		if ( posX > buttons.get(2).getPosition().getX() && posX < buttons.get(2).getPosition().getX() + buttonImages.get(2).getWidth() 
 				&& posY > buttons.get(2).getPosition().getY() && posY < buttons.get(2).getPosition().getY()	+ buttonImages.get(2).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {

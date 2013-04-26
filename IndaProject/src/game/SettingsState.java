@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -10,6 +11,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import components.ImageRenderComponent;
 
@@ -64,6 +66,7 @@ public class SettingsState extends BasicGameState{
 		int posX = Mouse.getX();
 		int posY = Math.abs(Mouse.getY() - Game.app.getHeight());
 		
+		// Music
 		if ( posX > buttons.get(0).getPosition().getX() && posX < buttons.get(0).getPosition().getX() + buttonImages.get(0).getWidth() 
 				&& posY > buttons.get(0).getPosition().getY() && posY < buttons.get(0).getPosition().getY()	+ buttonImages.get(0).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
@@ -71,20 +74,25 @@ public class SettingsState extends BasicGameState{
 			}
 		}
 		
+		// Fullscreen
 		if ( posX > buttons.get(1).getPosition().getX() && posX < buttons.get(1).getPosition().getX() + buttonImages.get(1).getWidth() 
 				&& posY > buttons.get(1).getPosition().getY() && posY < buttons.get(1).getPosition().getY()	+ buttonImages.get(1).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
-				Game.app.setFullscreen(true);
+				if (Game.app.isFullscreen() == true) {
+					Game.app.setFullscreen(false);
+				} else {
+					Game.app.setFullscreen(true);
+				}
 			}
 		}
 		
+		// Back
 		if ( posX > buttons.get(2).getPosition().getX() && posX < buttons.get(2).getPosition().getX() + buttonImages.get(2).getWidth() 
 				&& posY > buttons.get(2).getPosition().getY() && posY < buttons.get(2).getPosition().getY()	+ buttonImages.get(2).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
-				sb.enterState(MenuState.ID);
+				sb.enterState(MenuState.ID,new FadeOutTransition(Color.black, 200), null);
 			}
 		}
-		
 	}
 
 	@Override
