@@ -31,19 +31,19 @@ public class MenuState extends BasicGameState {
 		buttonImages = new ArrayList<Image>();
 		
 		Entity newGameButton = new Entity("New Game");
-		buttonImages.add(new Image("Sprites/new game.png"));
+		buttonImages.add(new Image("res/buttons/new_game.png"));
 		newGameButton.AddComponent(new ImageRenderComponent("New Game Button", buttonImages.get(0)));
 		newGameButton.setPosition(new Vector2f(centerWidth - 100, centerHeight - 125));
 		buttons.add(newGameButton);
 		
 		Entity settingsButton = new Entity("Settings");
-		buttonImages.add(new Image("Sprites/Settings.png"));
+		buttonImages.add(new Image("res/buttons/settings.png"));
 		settingsButton.AddComponent(new ImageRenderComponent("Settings Button", buttonImages.get(1)));
 		settingsButton.setPosition(new Vector2f(centerWidth - 100, centerHeight));
 		buttons.add(settingsButton);
 		
 		Entity exitButton = new Entity("Exit");
-		buttonImages.add(new Image("Sprites/exit.png"));
+		buttonImages.add(new Image("res/buttons/exit.png"));
 		exitButton.AddComponent(new ImageRenderComponent("Exit Button", buttonImages.get(2)));
 		exitButton.setPosition(new Vector2f(centerWidth - 100, centerHeight + 125));
 		buttons.add(exitButton);
@@ -52,7 +52,6 @@ public class MenuState extends BasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
-		g.setColor(Color.white);
 		
 		for(Entity e: buttons){
 			e.render(gc, sb, g);
@@ -82,7 +81,7 @@ public class MenuState extends BasicGameState {
 		if ( posX > buttons.get(1).getPosition().getX() && posX < buttons.get(1).getPosition().getX() + buttonImages.get(1).getWidth() 
 				&& posY > buttons.get(1).getPosition().getY() && posY < buttons.get(1).getPosition().getY()	+ buttonImages.get(1).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
-				sb.enterState(1);
+				sb.enterState(SettingsState.ID);
 			}
 		}
 		

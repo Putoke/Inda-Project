@@ -26,12 +26,12 @@ public class InGameState extends BasicGameState {
 
 		Entity background = new Entity("background");
 		background.AddComponent(new ImageRenderComponent("BackgroundRender",
-				new Image("/Sprites/background.png")));
+				new Image("res/sprites/background.png")));
 		entities.add(background);
 
 		Entity player = new Entity("player");
 		player.AddComponent(new ImageRenderComponent("PlayerRender", new Image(
-				"/Sprites/Character.png")));
+				"res/sprites/Character.png")));
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
 		player.setPosition(new Vector2f(400, 300));
 		entities.add(player);
