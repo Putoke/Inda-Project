@@ -20,13 +20,12 @@ public class Game extends StateBasedGame {
 		addState(new InGameState());
 		addState(new SettingsState());
 		
-
 	}
 
 	public static void main(String[] args) {
 		try {
 			app = new AppGameContainer(new Game());
-			app.setDisplayMode(800, 600, false);
+			app.setDisplayMode(1920, 1080, false);
 			app.setTargetFrameRate(60);
 			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
