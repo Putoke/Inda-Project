@@ -7,6 +7,7 @@ import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
@@ -85,35 +86,6 @@ public class SettingsState extends BasicGameState {
 					.getPosition().getY());
 		}
 
-		// musicCheck.draw(buttons.get(0).getPosition().getX() +
-		// buttonImages.get(0).getWidth() + 50,
-		// buttons.get(0).getPosition().getY());
-		// fullscreenCheck.draw(buttons.get(1).getPosition().getX() +
-		// buttonImages.get(1).getWidth() + 50,
-		// buttons.get(1).getPosition().getY());
-		// g.drawImage(musicCheck, buttons.get(0).getPosition().getX() +
-		// buttonImages.get(0).getWidth() + 50,
-		// buttons.get(0).getPosition().getY());
-		// g.drawImage(fullscreenCheck, buttons.get(1).getPosition().getX() +
-		// buttonImages.get(1).getWidth() + 50,
-		// buttons.get(1).getPosition().getY());
-
-		/*
-		 * if (isMusicOn) {
-		 * 
-		 * //g.drawImage(check, buttons.get(0).getPosition().getX() +
-		 * buttonImages.get(0).getWidth() + 50,
-		 * buttons.get(0).getPosition().getY()); } else { //g.drawImage(cross,
-		 * buttons.get(0).getPosition().getX() + buttonImages.get(0).getWidth()
-		 * + 50, buttons.get(0).getPosition().getY()); }
-		 * 
-		 * if (isFullscreen) { //g.drawImage(check,
-		 * buttons.get(1).getPosition().getX() + buttonImages.get(1).getWidth()
-		 * + 50, buttons.get(1).getPosition().getY()); } else {
-		 * //g.drawImage(cross, buttons.get(1).getPosition().getX() +
-		 * buttonImages.get(1).getWidth() + 50,
-		 * buttons.get(1).getPosition().getY()); }
-		 */
 
 	}
 
@@ -121,6 +93,7 @@ public class SettingsState extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame sb, int delta)
 			throws SlickException {
 
+		Input input = gc.getInput();
 		int posX = Mouse.getX();
 		int posY = Math.abs(Mouse.getY() - Game.app.getHeight());
 
@@ -131,13 +104,14 @@ public class SettingsState extends BasicGameState {
 				&& posY > buttons.get(0).getPosition().getY()
 				&& posY < buttons.get(0).getPosition().getY()
 						+ buttonImages.get(0).getHeight()) {
-			if (Mouse.isButtonDown(0)) {
+			if (input.isMousePressed(0)) {
 				if (Game.app.isMusicOn()) {
 					Game.app.setMusicOn(false);
 				} else {
 					Game.app.setMusicOn(true);
 				}
 			}
+
 		}
 
 		// Fullscreen
@@ -147,7 +121,7 @@ public class SettingsState extends BasicGameState {
 				&& posY > buttons.get(1).getPosition().getY()
 				&& posY < buttons.get(1).getPosition().getY()
 						+ buttonImages.get(1).getHeight()) {
-			if (Mouse.isButtonDown(0)) {
+			if (input.isMousePressed(0)) {
 				if (Game.app.isFullscreen()) {
 					Game.app.setFullscreen(false);
 				} else {
@@ -163,7 +137,7 @@ public class SettingsState extends BasicGameState {
 				&& posY > buttons.get(2).getPosition().getY()
 				&& posY < buttons.get(2).getPosition().getY()
 						+ buttonImages.get(2).getHeight()) {
-			if (Mouse.isButtonDown(0)) {
+			if (input.isMousePressed(0)) {
 				sb.enterState(MenuState.ID, new FadeOutTransition(Color.black,
 						200), null);
 			}

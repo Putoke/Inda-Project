@@ -81,7 +81,7 @@ public class MenuState extends BasicGameState {
 				&& posY > buttons.get(0).getPosition().getY()
 				&& posY < buttons.get(0).getPosition().getY()
 						+ buttonImages.get(0).getHeight()) {
-			if (Mouse.isButtonDown(0)) {
+			if (input.isMousePressed(0)) {
 				sb.enterState(InGameState.ID);
 			}
 		}
@@ -93,7 +93,7 @@ public class MenuState extends BasicGameState {
 				&& posY > buttons.get(1).getPosition().getY()
 				&& posY < buttons.get(1).getPosition().getY()
 						+ buttonImages.get(1).getHeight()) {
-			if (Mouse.isButtonDown(0)) {
+			if (input.isMousePressed(0)) {
 				sb.enterState(SettingsState.ID, new FadeOutTransition(
 						Color.black, 200), null);
 			}
@@ -106,7 +106,8 @@ public class MenuState extends BasicGameState {
 				&& posY > buttons.get(2).getPosition().getY()
 				&& posY < buttons.get(2).getPosition().getY()
 						+ buttonImages.get(2).getHeight()) {
-			if (Mouse.isButtonDown(0)) {
+			if (input.isMousePressed(0)) {
+				Game.stopMusic();
 				System.exit(0);
 			}
 		}
