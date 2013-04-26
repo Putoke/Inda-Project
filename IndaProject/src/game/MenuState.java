@@ -111,7 +111,6 @@ public class MenuState extends BasicGameState {
 				System.exit(0);
 			}
 		}
-
 	}
 
 	@Override

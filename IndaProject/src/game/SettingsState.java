@@ -86,7 +86,6 @@ public class SettingsState extends BasicGameState {
 					.getPosition().getY());
 		}
 
-
 	}
 
 	@Override
