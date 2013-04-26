@@ -38,7 +38,10 @@ public final class Controller {
 	}
 
 	public static boolean isP1ButtonPressed(String action, Input input) {
-		if (!input.isKeyDown(p1Buttons.get(action))) {
+		if(p1Buttons.get(action) < 3 && input.isMouseButtonDown(p1Buttons.get(action))){
+			return true;
+		}
+		if (!input.isKeyDown(p1Buttons.get(action))){
 			return false;
 		}
 		return true;
@@ -62,6 +65,7 @@ public final class Controller {
 		addP1Button("LeftAlt", Input.KEY_LEFT);
 		addP1Button("DownAlt", Input.KEY_DOWN);
 		addP1Button("RightAlt", Input.KEY_RIGHT);
+		addP1Button("Shoot", Input.MOUSE_LEFT_BUTTON);
 
 		shortcuts = new HashMap<String, Integer>();
 		addShortcut("Fullscreen", Input.KEY_F11);

@@ -1,7 +1,8 @@
 package components;
 
+
 import game.Controller;
-import game.Game;
+import game.InGameState;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -53,7 +54,11 @@ public class PlayerMovementComponent extends Component {
 		if (Controller.isP1ButtonPressed("Down", input) || Controller.isP1ButtonPressed("DownAlt", input)){
 			position.y += 0.2f * delta;
 		}
-
+		
+		if(Controller.isP1ButtonPressed("Shoot", input)){
+			InGameState.addShot(rotation, position);
+		}
+		
 		owner.setPosition(position);
 		owner.setRotation(rotation);
 		owner.setScale(scale);

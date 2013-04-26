@@ -19,10 +19,12 @@ public class InGameState extends BasicGameState {
 
 	public static final int ID = 1;
 	private ArrayList<Entity> entities;
+	private static ArrayList<Entity> shots;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
 		entities = new ArrayList<Entity>();
+		shots = new ArrayList<Entity>();
 
 		Entity background = new Entity("background");
 		background.AddComponent(new ImageRenderComponent("BackgroundRender",
@@ -44,6 +46,9 @@ public class InGameState extends BasicGameState {
 		for (Entity e : entities) {
 			e.render(gc, sb, g);
 		}
+		for (Entity e : shots) {
+			e.render(gc, sb, g);
+		}
 
 	}
 
@@ -51,6 +56,9 @@ public class InGameState extends BasicGameState {
 	public void update(GameContainer gc, StateBasedGame sb, int delta)
 			throws SlickException {
 		for (Entity e : entities) {
+			e.update(gc, sb, delta);
+		}
+		for (Entity e : shots) {
 			e.update(gc, sb, delta);
 		}
 
@@ -67,6 +75,17 @@ public class InGameState extends BasicGameState {
 	@Override
 	public int getID() {
 		return ID;
+	}
+	
+	public static void addShot(float rotation, Vector2f position){
+		Entity newShot = new Entity("Shot");
+		try {
+			newShot.AddComponent(new ImageRenderComponent("Shot Image", new Image("res/sprites/shot.png")));
+		} catch (SlickException e) {
+			System.err.println("Couldn't load shot image.");
+		}
+		newShot.AddComponent(new ShotComponent("Shot", rotation, position));
+		shots.add(newShot);
 	}
 
 }
