@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -7,9 +9,12 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeOutTransition;
+
+import components.ImageRenderComponent;
 
 public class MenuState extends BasicGameState {
 
@@ -17,8 +22,31 @@ public class MenuState extends BasicGameState {
 	private int centerHeight = Game.app.getHeight()/2;
 	private int centerWidth = Game.app.getWidth()/2;
 
+	private ArrayList<Entity> buttons;
+	private ArrayList<Image> buttonImages;
+	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
+		buttons = new ArrayList<Entity>();
+		buttonImages = new ArrayList<Image>();
+		
+		Entity newGameButton = new Entity("New Game");
+		buttonImages.add(new Image("Sprites/new game.png"));
+		newGameButton.AddComponent(new ImageRenderComponent("New Game Button", buttonImages.get(0)));
+		newGameButton.setPosition(new Vector2f(centerWidth - 100, centerHeight - 125));
+		buttons.add(newGameButton);
+		
+		Entity settingsButton = new Entity("Settings");
+		buttonImages.add(new Image("Sprites/Settings.png"));
+		settingsButton.AddComponent(new ImageRenderComponent("Settings Button", buttonImages.get(1)));
+		settingsButton.setPosition(new Vector2f(centerWidth - 100, centerHeight));
+		buttons.add(settingsButton);
+		
+		Entity exitButton = new Entity("Exit");
+		buttonImages.add(new Image("Sprites/exit.png"));
+		exitButton.AddComponent(new ImageRenderComponent("Exit Button", buttonImages.get(2)));
+		exitButton.setPosition(new Vector2f(centerWidth - 100, centerHeight + 125));
+		buttons.add(exitButton);
 	}
 
 	@Override
@@ -26,14 +54,9 @@ public class MenuState extends BasicGameState {
 			throws SlickException {
 		g.setColor(Color.white);
 		
-		//g.drawString("MENU", centerWidth-35, centerHeight - 125);
-		//g.drawString("New Game", centerWidth-50, centerHeight - 75);
-		//g.drawString("Settings", centerWidth-50, centerHeight - 25);
-		g.drawString("Exit", centerWidth-50, 100);
-		
-		g.drawImage(new Image("Sprites/new game.png"), centerWidth-100, centerHeight-125);
-		g.drawImage(new Image("Sprites/Settings.png"), centerWidth-100, centerHeight-25);
-		g.drawImage(new Image("Sprites/exit.png"), centerWidth-100, centerHeight+75);
+		for(Entity e: buttons){
+			e.render(gc, sb, g);
+		}
 
 	}
 
@@ -47,13 +70,29 @@ public class MenuState extends BasicGameState {
 		}
 		
 		int posX = Mouse.getX();
-		int posY = Mouse.getY();
+		int posY = Math.abs(Mouse.getY() - Game.app.getHeight());
 		
-		if ( (posX > (centerWidth-100) && posX < (centerWidth+100))){ //&& (posY > (centerHeight-125) && posY < (centerHeight-75)) ) {
+		if ( posX > buttons.get(0).getPosition().getX() && posX < buttons.get(0).getPosition().getX() + buttonImages.get(0).getWidth() 
+				&& posY > buttons.get(0).getPosition().getY() && posY < buttons.get(0).getPosition().getY()	+ buttonImages.get(0).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
 				sb.enterState(InGameState.ID);
 			}
 		}
+		
+		if ( posX > buttons.get(1).getPosition().getX() && posX < buttons.get(1).getPosition().getX() + buttonImages.get(1).getWidth() 
+				&& posY > buttons.get(1).getPosition().getY() && posY < buttons.get(1).getPosition().getY()	+ buttonImages.get(1).getHeight() ) {
+			if (Mouse.isButtonDown(0)) {
+				sb.enterState(1);
+			}
+		}
+		
+		if ( posX > buttons.get(2).getPosition().getX() && posX < buttons.get(2).getPosition().getX() + buttonImages.get(2).getWidth() 
+				&& posY > buttons.get(2).getPosition().getY() && posY < buttons.get(2).getPosition().getY()	+ buttonImages.get(2).getHeight() ) {
+			if (Mouse.isButtonDown(0)) {
+				System.exit(0);
+			}
+		}
+		
 
 	}
 

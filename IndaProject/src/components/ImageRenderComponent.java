@@ -8,7 +8,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class ImageRenderComponent extends RenderComponent {
 
-	Image image;
+	private Image image;
 
 	public ImageRenderComponent(String id, Image image) {
 		super(id);
@@ -29,5 +29,5 @@ public class ImageRenderComponent extends RenderComponent {
 
 		image.rotate(owner.getRotation() - image.getRotation());
 	}
-
+	
 }

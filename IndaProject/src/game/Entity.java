@@ -12,14 +12,14 @@ import components.RenderComponent;
 
 public class Entity {
 
-	String id;
+	private String id;
 
-	Vector2f position;
-	float scale;
-	float rotation;
+	private Vector2f position;
+	private float scale;
+	private float rotation;
 	//
-	RenderComponent renderComponent = null;
-	ArrayList<Component> components = null;
+	private RenderComponent renderComponent = null;
+	private ArrayList<Component> components = null;
 
 	public Entity(String id) {
 		this.id = id;
