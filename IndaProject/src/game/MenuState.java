@@ -30,13 +30,13 @@ public class MenuState extends BasicGameState {
 		buttons = new ArrayList<Entity>();
 		buttonImages = new ArrayList<Image>();
 
-		Entity newGameButton = new Entity("New Game");
-		buttonImages.add(new Image("res/buttons/new_game.png"));
-		newGameButton.AddComponent(new ImageRenderComponent("New Game Button",
+		Entity playButton = new Entity("Play");
+		buttonImages.add(new Image("res/buttons/play.png"));
+		playButton.AddComponent(new ImageRenderComponent("Play Button",
 				buttonImages.get(0)));
-		newGameButton.setPosition(new Vector2f(centerWidth - 100,
+		playButton.setPosition(new Vector2f(centerWidth - 100,
 				centerHeight - 125));
-		buttons.add(newGameButton);
+		buttons.add(playButton);
 
 		Entity settingsButton = new Entity("Settings");
 		buttonImages.add(new Image("res/buttons/settings.png"));
