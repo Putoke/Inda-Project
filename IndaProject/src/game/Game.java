@@ -29,6 +29,7 @@ public class Game extends StateBasedGame {
 			app.setTargetFrameRate(60);
 			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
+			app.setMusicOn(true);
 			app.start();
 			
 		} catch (SlickException e) {
