@@ -81,7 +81,7 @@ public class MenuState extends BasicGameState {
 		if ( posX > buttons.get(1).getPosition().getX() && posX < buttons.get(1).getPosition().getX() + buttonImages.get(1).getWidth() 
 				&& posY > buttons.get(1).getPosition().getY() && posY < buttons.get(1).getPosition().getY()	+ buttonImages.get(1).getHeight() ) {
 			if (Mouse.isButtonDown(0)) {
-				sb.enterState(SettingsState.ID);
+				sb.enterState(SettingsState.ID,new FadeOutTransition(Color.black, 250), null);
 			}
 		}
 		

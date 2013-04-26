@@ -20,6 +20,7 @@ public class Game extends StateBasedGame {
 		addState(new InGameState());
 		addState(new SettingsState());
 		
+		
 
 	}
 
