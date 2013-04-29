@@ -86,6 +86,7 @@ public class InGameState extends BasicGameState {
 			System.err.println("Couldn't load shot image.");
 		}
 		newShot.AddComponent(new ShotComponent("Shot", rotation, position));
+		newShot.setHealth(1);
 		shots.add(newShot);
 	}
 

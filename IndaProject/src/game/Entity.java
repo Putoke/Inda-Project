@@ -17,6 +17,8 @@ public class Entity {
 	private Vector2f position;
 	private float scale;
 	private float rotation;
+	private int health;
+	private float radius;
 	//
 	private RenderComponent renderComponent = null;
 	private ArrayList<Component> components = null;
@@ -85,5 +87,29 @@ public class Entity {
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		if (renderComponent != null)
 			renderComponent.render(gc, sb, gr);
+	}
+	
+	public void setHealth(int health){
+		this.health = health;
+	}
+	
+	public int getHealth(){
+		return health;
+	}
+	
+	public float getRadius(){
+		return radius;
+	}
+	
+	public void setRedius(float radius){
+		this.radius = radius;
+	}
+	
+	public void damage(int damage){
+		this.health -= damage;
+	}
+	
+	public void heal(int heal){
+		this.health += heal;
 	}
 }

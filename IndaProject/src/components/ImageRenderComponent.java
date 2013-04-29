@@ -30,4 +30,7 @@ public class ImageRenderComponent extends RenderComponent {
 		image.rotate(owner.getRotation() - image.getRotation());
 	}
 	
+	public float getRadius(){
+		return image.getWidth()/2;
+	}
 }
