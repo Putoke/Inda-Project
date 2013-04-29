@@ -84,9 +84,9 @@ public class Entity {
 		}
 	}
 
-	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
+	public void render(GameContainer gc, StateBasedGame sb, Graphics g) {
 		if (renderComponent != null)
-			renderComponent.render(gc, sb, gr);
+			renderComponent.render(gc, sb, g);
 	}
 	
 	public void setHealth(int health){
@@ -111,5 +111,9 @@ public class Entity {
 	
 	public void heal(int heal){
 		this.health += heal;
+	}
+	
+	public ArrayList<Component> getComponents() {
+		return components;
 	}
 }

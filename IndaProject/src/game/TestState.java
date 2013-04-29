@@ -1,6 +1,5 @@
 package game;
 
-import java.util.ArrayList;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -13,7 +12,6 @@ import org.newdawn.slick.state.StateBasedGame;
 public class TestState extends BasicGameState{
 	private static final int ID = 4;
 
-	private ArrayList<MenuButton> buttons;
 	private MenuButton testButton;
 	
 	@Override
