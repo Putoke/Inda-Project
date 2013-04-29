@@ -59,8 +59,12 @@ public class InGameState extends BasicGameState {
 		for (Entity e : entities) {
 			e.update(gc, sb, delta);
 		}
-		for (Entity e : shots) {
-			e.update(gc, sb, delta);
+		for(int i=0; i<shots.size(); i++){
+			shots.get(i).update(gc, sb, delta);
+			if(shots.get(i).getHealth() <= 0){
+				shots.remove(i);
+				i--;
+			}
 		}
 
 		Input input = gc.getInput();
@@ -81,7 +85,9 @@ public class InGameState extends BasicGameState {
 	public static void addShot(float rotation, Vector2f position){
 		Entity newShot = new Entity("Shot");
 		try {
-			newShot.AddComponent(new ImageRenderComponent("Shot Image", new Image("res/sprites/shot.png")));
+			ImageRenderComponent temp = new ImageRenderComponent("Shot Image", new Image("res/sprites/shot.png"));
+			newShot.AddComponent(temp);
+			newShot.setRadius(temp.getRadius());
 		} catch (SlickException e) {
 			System.err.println("Couldn't load shot image.");
 		}
