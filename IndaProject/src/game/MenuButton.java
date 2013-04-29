@@ -12,8 +12,6 @@ import components.ImageRenderComponent;
 
 public class MenuButton extends Entity{
 
-	//private int mousePosX;
-	//private int mousePosY;
 	private boolean mousePressed;
 	private Image image;
 	

@@ -17,7 +17,6 @@ public class TestState extends BasicGameState{
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb)
 			throws SlickException {
-		//MenuButton play = new MenuButton("menubutton", new Vector2f(100, 100))
 		testButton = new MenuButton("testButton", new Vector2f(500, 100), new Image("res/buttons/play.png"));
 		
 	}
@@ -25,9 +24,6 @@ public class TestState extends BasicGameState{
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
-		/*for (MenuButton button : buttons) {
-			button.render(gc, sb, g);
-		}*/
 		testButton.render(gc, sb, g);
 	}
 
@@ -36,7 +32,6 @@ public class TestState extends BasicGameState{
 			throws SlickException {
 		if (testButton.isMousePressed()) {
 			sb.enterState(SettingsState.ID);
-			//System.out.println("poooop");
 		}
 		
 		
