@@ -33,4 +33,8 @@ public class ImageRenderComponent extends RenderComponent {
 	public float getRadius(){
 		return image.getWidth()/2;
 	}
+	
+	public Image getImage() {
+		return image;
+	}
 }
