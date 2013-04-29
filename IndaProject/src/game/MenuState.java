@@ -2,20 +2,16 @@ package game;
 
 import java.util.ArrayList;
 
-import org.lwjgl.input.Mouse;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
-import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
-import components.ImageRenderComponent;
 
 public class MenuState extends BasicGameState {
 
@@ -23,60 +19,59 @@ public class MenuState extends BasicGameState {
 	private int centerHeight = Game.app.getHeight() / 2;
 	private int centerWidth = Game.app.getWidth() / 2;
 
-	private ArrayList<Entity> buttons;
-	private ArrayList<Image> buttonImages;
+	private ArrayList<MenuButton> buttons;
+	private MenuButton playButton, settingsButton, exitButton;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
-		buttons = new ArrayList<Entity>();
-		buttonImages = new ArrayList<Image>();
-
-		Entity playButton = new Entity("Play");
-		buttonImages.add(new Image("res/buttons/play.png"));
-		playButton.AddComponent(new ImageRenderComponent("Play Button",
-				buttonImages.get(0)));
-		playButton.setPosition(new Vector2f(centerWidth - 100,
-				centerHeight - 125));
+		buttons = new ArrayList<MenuButton>();
+		
+		playButton = new MenuButton("playButton", new Vector2f(centerWidth - 100, centerHeight - 125), new Image("res/buttons/play.png"));
 		buttons.add(playButton);
-
-		Entity settingsButton = new Entity("Settings");
-		buttonImages.add(new Image("res/buttons/settings.png"));
-		settingsButton.AddComponent(new ImageRenderComponent("Settings Button",
-				buttonImages.get(1)));
-		settingsButton
-				.setPosition(new Vector2f(centerWidth - 100, centerHeight));
+		
+		settingsButton = new MenuButton("settingsButton", new Vector2f(centerWidth - 100, centerHeight), new Image("res/buttons/settings.png"));
 		buttons.add(settingsButton);
 
-		Entity exitButton = new Entity("Exit");
-		buttonImages.add(new Image("res/buttons/exit.png"));
-		exitButton.AddComponent(new ImageRenderComponent("Exit Button",
-				buttonImages.get(2)));
-		exitButton.setPosition(new Vector2f(centerWidth - 100,
-				centerHeight + 125));
+		exitButton = new MenuButton("playButton", new Vector2f(centerWidth - 100, centerHeight + 125), new Image("res/buttons/exit.png"));
 		buttons.add(exitButton);
+		
+		
+		
 	}
 
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
-
-		for (Entity e : buttons) {
-			e.render(gc, sb, g);
+		for (MenuButton button : buttons) {
+			button.render(gc, sb, g);
 		}
-
 	}
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta)
 			throws SlickException {
 
-		Input input = gc.getInput();
-
-		int posX = Mouse.getX();
-		int posY = Math.abs(Mouse.getY() - Game.app.getHeight());
+		for (MenuButton button : buttons) {
+			button.update(gc, sb, delta);
+		}
+		
+		if (playButton.isMousePressed()) {
+			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
+					200), null);
+		}
+		
+		if (settingsButton.isMousePressed()) {
+			sb.enterState(SettingsState.ID, new FadeOutTransition(Color.black,
+					200), null);
+		}
+		
+		if (exitButton.isMousePressed()) {
+			Game.stopMusic();
+			System.exit(0);
+		}
 
 		// Play
-		if (posX > buttons.get(0).getPosition().getX()
+		/*if (posX > buttons.get(0).getPosition().getX()
 				&& posX < buttons.get(0).getPosition().getX()
 						+ buttonImages.get(0).getWidth()
 				&& posY > buttons.get(0).getPosition().getY()
@@ -114,7 +109,7 @@ public class MenuState extends BasicGameState {
 				Game.stopMusic();
 				System.exit(0);
 			}
-		}
+		}*/
 	}
 
 	@Override
