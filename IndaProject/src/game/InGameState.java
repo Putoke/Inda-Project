@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -46,15 +47,18 @@ public class InGameState extends BasicGameState {
 		entities.add(player);
 		
 		//Adds a wave of enemies. TODO make better!
-		Entity enemy = new Entity("enemy");
-		temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/enemy.png"));
-		enemy.AddComponent(temp);
-		enemy.setRadius(temp.getRadius());
-		enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
-		enemy.setPosition(new Vector2f(100, 100));
-		enemy.setHealth(10);
-		enemies.add(enemy);
-		
+		Random random = new Random();
+		for(int i=0; i<10; i++){
+			Entity enemy = new Entity("enemy");
+			temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemy.png"));
+			enemy.AddComponent(temp);
+			enemy.setRadius(temp.getRadius());
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
+			enemy.setPosition(new Vector2f(random.nextInt(1920), random.nextInt(1080)));
+			enemy.setHealth(10);
+			enemies.add(enemy);
+		}
+
 
 	}
 
