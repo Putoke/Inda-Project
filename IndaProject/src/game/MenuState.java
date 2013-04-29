@@ -34,9 +34,7 @@ public class MenuState extends BasicGameState {
 
 		exitButton = new MenuButton("playButton", new Vector2f(centerWidth - 100, centerHeight + 125), new Image("res/buttons/exit.png"));
 		buttons.add(exitButton);
-		
-		
-		
+
 	}
 
 	@Override
@@ -70,46 +68,6 @@ public class MenuState extends BasicGameState {
 			System.exit(0);
 		}
 
-		// Play
-		/*if (posX > buttons.get(0).getPosition().getX()
-				&& posX < buttons.get(0).getPosition().getX()
-						+ buttonImages.get(0).getWidth()
-				&& posY > buttons.get(0).getPosition().getY()
-				&& posY < buttons.get(0).getPosition().getY()
-						+ buttonImages.get(0).getHeight()) {
-			if (input.isMousePressed(0)) {
-				sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
-						200), new FadeInTransition(Color.black,
-								200));
-			}
-		}
-
-		// Settings
-		if (posX > buttons.get(1).getPosition().getX()
-				&& posX < buttons.get(1).getPosition().getX()
-						+ buttonImages.get(1).getWidth()
-				&& posY > buttons.get(1).getPosition().getY()
-				&& posY < buttons.get(1).getPosition().getY()
-						+ buttonImages.get(1).getHeight()) {
-			if (input.isMousePressed(0)) {
-				sb.enterState(SettingsState.ID, new FadeOutTransition(Color.black,
-						200), new FadeInTransition(Color.black,
-								200));
-			}
-		}
-
-		// Exit
-		if (posX > buttons.get(2).getPosition().getX()
-				&& posX < buttons.get(2).getPosition().getX()
-						+ buttonImages.get(2).getWidth()
-				&& posY > buttons.get(2).getPosition().getY()
-				&& posY < buttons.get(2).getPosition().getY()
-						+ buttonImages.get(2).getHeight()) {
-			if (input.isMousePressed(0)) {
-				Game.stopMusic();
-				System.exit(0);
-			}
-		}*/
 	}
 
 	@Override

@@ -32,11 +32,11 @@ public class SettingsState extends BasicGameState {
 		cross = new Image("res/buttons/cross.png");
 
 		musicButton = new MenuButton("musicButton", new Vector2f(centerWidth - 100,
-				centerHeight - 125), new Image("res/buttons/fullscreen.png"));
+				centerHeight - 125), new Image("res/buttons/music.png"));
 		buttons.add(musicButton);
 		
 		fullscreenButton = new MenuButton("fullscreenButton", new Vector2f(centerWidth - 100,
-				centerHeight), new Image("res/buttons/music.png"));
+				centerHeight), new Image("res/buttons/fullscreen.png"));
 		buttons.add(fullscreenButton);
 		
 		backButton = new MenuButton("backButton", new Vector2f(centerWidth - 100,
