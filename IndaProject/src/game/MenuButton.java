@@ -39,7 +39,6 @@ public class MenuButton extends Entity{
 		if ( mousePosX > getPosition().getX() && mousePosX < getPosition().getX() + image.getWidth() 
 				&& mousePosY > getPosition().getY() && mousePosY < getPosition().getY() + image.getHeight() ) { // cursor is inside button
 
-		
 			if (input.isMousePressed(0)) {
 				mousePressed = true;
 			} else {
