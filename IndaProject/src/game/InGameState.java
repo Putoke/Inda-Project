@@ -49,6 +49,7 @@ public class InGameState extends BasicGameState {
 		for (Entity e : shots) {
 			e.render(gc, sb, g);
 		}
+		
 
 	}
 

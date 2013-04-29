@@ -1,5 +1,8 @@
 package game;
 
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.DisplayMode;
+import org.lwjgl.opengl.Display;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Music;
@@ -33,6 +36,18 @@ public class Game extends StateBasedGame {
 	public static void main(String[] args) {
 		try {
 			
+			try {
+				DisplayMode[] modes = Display.getAvailableDisplayModes();
+				for (int i=0;i<modes.length;i++) {
+		             DisplayMode current = modes[i];
+		             System.out.println(current.getWidth() + "x" + current.getHeight() + "x" +
+		                                 current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
+		         }
+		         //System.out.println(gc.getAspectRatio());
+			} catch (LWJGLException e) {
+				e.printStackTrace();
+			}
+			
 			app = new AppGameContainer(new Game());
 			app.setDisplayMode(1920, 1080, true);
 			app.setTargetFrameRate(60);
@@ -40,7 +55,7 @@ public class Game extends StateBasedGame {
 			app.setSmoothDeltas(true);
 			app.start();
 			
-			
+
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
