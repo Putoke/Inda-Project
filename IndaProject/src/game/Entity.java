@@ -101,7 +101,7 @@ public class Entity {
 		return radius;
 	}
 	
-	public void setRedius(float radius){
+	public void setRadius(float radius){
 		this.radius = radius;
 	}
 	

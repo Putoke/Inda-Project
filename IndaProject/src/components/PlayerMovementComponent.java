@@ -13,9 +13,11 @@ public class PlayerMovementComponent extends Component {
 
 	private float direction;
 	private float speed;
+	private int shotDelay, shotCounter;
 
 	public PlayerMovementComponent(String id) {
 		this.id = id;
+		shotDelay = 500;
 	}
 
 	public float getSpeed() {
@@ -55,14 +57,15 @@ public class PlayerMovementComponent extends Component {
 			position.y += 0.2f * delta;
 		}
 		
-		if(Controller.isP1ButtonPressed("Shoot", input)){
+		if(Controller.isP1ButtonPressed("Shoot", input) && shotCounter >= shotDelay){
 			InGameState.addShot(rotation, position);
+			shotCounter = 0;
 		}
 		
 		owner.setPosition(position);
 		owner.setRotation(rotation);
 		owner.setScale(scale);
-
+		shotCounter += delta;
 	}
 
 }
