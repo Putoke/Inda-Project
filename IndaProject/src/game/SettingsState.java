@@ -121,11 +121,7 @@ public class SettingsState extends BasicGameState {
 				&& posY < buttons.get(1).getPosition().getY()
 						+ buttonImages.get(1).getHeight()) {
 			if (input.isMousePressed(0)) {
-				if (Game.app.isFullscreen()) {
-					Game.app.setFullscreen(false);
-				} else {
-					Game.app.setFullscreen(true);
-				}
+				Game.app.setDisplayMode(1680, 1050, !Game.app.isFullscreen());
 			}
 		}
 
