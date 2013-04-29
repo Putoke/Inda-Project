@@ -22,7 +22,7 @@ public class MenuButton extends Entity{
 		setPosition(pos);
 		this.image = image;
 		AddComponent(new ImageRenderComponent("button_image", image));
-		mousePressed = true;
+		//mousePressed = true;
 	}
 
 	
