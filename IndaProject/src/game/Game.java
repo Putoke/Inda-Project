@@ -11,6 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Game extends StateBasedGame {
 	private static Music music;
+	private static DisplayMode dispMode;
 	public static AppGameContainer app;
 
 	public Game() {
@@ -38,18 +39,21 @@ public class Game extends StateBasedGame {
 			
 			try {
 				DisplayMode[] modes = Display.getAvailableDisplayModes();
+				dispMode = modes[0];
 				for (int i=0;i<modes.length;i++) {
 		             DisplayMode current = modes[i];
 		             System.out.println(current.getWidth() + "x" + current.getHeight() + "x" +
 		                                 current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
+		             if(modes[i].getWidth() > dispMode.getWidth()){
+		            	 dispMode = modes[i];
+		             }
 		         }
-		         //System.out.println(gc.getAspectRatio());
 			} catch (LWJGLException e) {
 				e.printStackTrace();
 			}
 			
 			app = new AppGameContainer(new Game());
-			app.setDisplayMode(1680, 1050, true);
+			app.setDisplayMode(dispMode.getWidth(), dispMode.getHeight(), true);
 			app.setTargetFrameRate(60);
 			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
@@ -69,5 +73,8 @@ public class Game extends StateBasedGame {
 		music.stop();
 	}
 	
+	public static DisplayMode getDisplayMode(){
+		return dispMode;
+	}
 	
 }
