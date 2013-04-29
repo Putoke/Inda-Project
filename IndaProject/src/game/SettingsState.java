@@ -12,6 +12,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import components.ImageRenderComponent;
@@ -134,7 +135,8 @@ public class SettingsState extends BasicGameState {
 						+ buttonImages.get(2).getHeight()) {
 			if (input.isMousePressed(0)) {
 				sb.enterState(MenuState.ID, new FadeOutTransition(Color.black,
-						200), null);
+						200), new FadeInTransition(Color.black,
+								200));
 			}
 		}
 	}

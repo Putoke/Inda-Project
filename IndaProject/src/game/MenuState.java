@@ -12,6 +12,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import components.ImageRenderComponent;
@@ -82,7 +83,9 @@ public class MenuState extends BasicGameState {
 				&& posY < buttons.get(0).getPosition().getY()
 						+ buttonImages.get(0).getHeight()) {
 			if (input.isMousePressed(0)) {
-				sb.enterState(InGameState.ID);
+				sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
+						200), new FadeInTransition(Color.black,
+								200));
 			}
 		}
 
@@ -94,8 +97,9 @@ public class MenuState extends BasicGameState {
 				&& posY < buttons.get(1).getPosition().getY()
 						+ buttonImages.get(1).getHeight()) {
 			if (input.isMousePressed(0)) {
-				sb.enterState(SettingsState.ID, new FadeOutTransition(
-						Color.black, 200), null);
+				sb.enterState(SettingsState.ID, new FadeOutTransition(Color.black,
+						200), new FadeInTransition(Color.black,
+								200));
 			}
 		}
 
