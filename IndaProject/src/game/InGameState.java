@@ -105,9 +105,9 @@ public class InGameState extends BasicGameState {
 	}
 	
 	private boolean collision(Entity e1, Entity e2){
-		float dx = e2.getPosition().x - e1.getPosition().x;
-		float dy = e2.getPosition().y - e1.getPosition().y;
 		float radii = e1.getRadius() + e2.getRadius();
+		float dx = e2.getPosition().x - e1.getPosition().x + radii;
+		float dy = e2.getPosition().y - e1.getPosition().y + radii;
 		if( dx * dx + dy * dy < radii * radii){
 			return true;
 		}
