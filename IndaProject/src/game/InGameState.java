@@ -56,6 +56,7 @@ public class InGameState extends BasicGameState {
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
 			enemy.setPosition(new Vector2f(random.nextInt(1920), random.nextInt(1080)));
 			enemy.setHealth(10);
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar", new Image("res/sprites/damage.png"), new Image("res/sprites/health.png"), new Image("res/sprites/bar.png")));
 			enemies.add(enemy);
 		}
 

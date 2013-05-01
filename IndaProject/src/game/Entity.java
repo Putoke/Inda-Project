@@ -18,15 +18,17 @@ public class Entity {
 	private float scale;
 	private float rotation;
 	private int health;
+	private int currentHealth;
 	private float radius;
 	//
-	private RenderComponent renderComponent = null;
+	private ArrayList<RenderComponent> renderComponent = null;
 	private ArrayList<Component> components = null;
 
 	public Entity(String id) {
 		this.id = id;
 
 		components = new ArrayList<Component>();
+		renderComponent = new ArrayList<RenderComponent>();
 
 		position = new Vector2f(0, 0);
 		scale = 1;
@@ -35,7 +37,7 @@ public class Entity {
 
 	public void AddComponent(Component component) {
 		if (RenderComponent.class.isInstance(component))
-			renderComponent = (RenderComponent) component;
+			renderComponent.add((RenderComponent) component);
 
 		component.setOwnerEntity(this);
 		components.add(component);
@@ -85,15 +87,21 @@ public class Entity {
 	}
 
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g) {
-		if (renderComponent != null)
-			renderComponent.render(gc, sb, g);
+		for(RenderComponent re : renderComponent){
+			re.render(gc, sb, g);
+		}
 	}
 	
 	public void setHealth(int health){
 		this.health = health;
+		currentHealth = health;
 	}
 	
 	public int getHealth(){
+		return currentHealth;
+	}
+	
+	public int getMaximumHealth(){
 		return health;
 	}
 	
@@ -106,11 +114,14 @@ public class Entity {
 	}
 	
 	public void damage(int damage){
-		this.health -= damage;
+		this.currentHealth -= damage;
 	}
 	
 	public void heal(int heal){
-		this.health += heal;
+		this.currentHealth += heal;
+		if(currentHealth > health){
+			currentHealth = health;
+		}
 	}
 	
 	public ArrayList<Component> getComponents() {
