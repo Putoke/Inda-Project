@@ -22,13 +22,13 @@ public class Game extends StateBasedGame {
 			e.printStackTrace();
 		}
 		
-		startMusic();
+		music.loop();
+		music.pause();
 		Controller.init();
 	}
 
 	@Override
 	public void initStatesList(GameContainer arg0) throws SlickException {
-		//addState(new TestState());
 		addState(new MenuState());
 		addState(new InGameState());
 		addState(new SettingsState());
@@ -67,12 +67,8 @@ public class Game extends StateBasedGame {
 		}
 	}
 	
-	public static void startMusic() {
-		music.loop();
-	}
-	
-	public static void stopMusic() {
-		music.stop();
+	public static Music getMusic() {
+		return music;
 	}
 	
 	public static DisplayMode getDisplayMode(){

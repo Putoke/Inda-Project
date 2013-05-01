@@ -64,7 +64,6 @@ public class MenuState extends BasicGameState {
 		}
 		
 		if (exitButton.isMousePressed()) {
-			Game.stopMusic();
 			System.exit(0);
 		}
 

@@ -50,4 +50,8 @@ public class MenuButton extends Entity{
 		mousePressed = false;
 		return temp;
 	}
+	
+	public Image getImage() {
+		return image;
+	}
 }

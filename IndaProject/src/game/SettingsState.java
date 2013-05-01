@@ -51,26 +51,8 @@ public class SettingsState extends BasicGameState {
 		for (MenuButton button : buttons) {
 			button.render(gc, sb, g);
 		}
-
-		/*if (Game.app.isMusicOn()) {
-			g.drawImage(check, buttons.get(0).getPosition().getX()
-					+ buttonImages.get(0).getWidth() + 50, buttons.get(0)
-					.getPosition().getY());
-		} else {
-			g.drawImage(cross, buttons.get(0).getPosition().getX()
-					+ buttonImages.get(0).getWidth() + 50, buttons.get(0)
-					.getPosition().getY());
-		}
-
-		if (Game.app.isFullscreen()) {
-			g.drawImage(check, buttons.get(1).getPosition().getX()
-					+ buttonImages.get(1).getWidth() + 50, buttons.get(1)
-					.getPosition().getY());
-		} else {
-			g.drawImage(cross, buttons.get(1).getPosition().getX()
-					+ buttonImages.get(1).getWidth() + 50, buttons.get(1)
-					.getPosition().getY());
-		}*/
+		
+		drawButtonIcons(g);
 
 	}
 
@@ -82,10 +64,10 @@ public class SettingsState extends BasicGameState {
 		}
 
 		if (musicButton.isMousePressed()) {
-			if (Game.app.isMusicOn()) {
-				Game.app.setMusicOn(false);
+			if (Game.getMusic().paused()) {
+				Game.getMusic().resume();
 			} else {
-				Game.app.setMusicOn(true);
+				Game.getMusic().pause();
 			}
 		}
 		
@@ -102,6 +84,28 @@ public class SettingsState extends BasicGameState {
 	@Override
 	public int getID() {
 		return ID;
+	}
+	
+	private void drawButtonIcons(Graphics g) {
+		if (Game.getMusic().paused()) {
+			g.drawImage(cross, musicButton.getPosition().getX()
+					+ musicButton.getImage().getWidth() + 50, musicButton
+					.getPosition().getY());
+		} else {
+			g.drawImage(check, musicButton.getPosition().getX()
+					+ musicButton.getImage().getWidth() + 50, musicButton
+					.getPosition().getY());
+		}
+		
+		if (Game.app.isFullscreen()) {
+			g.drawImage(check, fullscreenButton.getPosition().getX()
+					+ fullscreenButton.getImage().getWidth() + 50, fullscreenButton
+					.getPosition().getY());
+		} else {
+			g.drawImage(cross, fullscreenButton.getPosition().getX()
+					+ fullscreenButton.getImage().getWidth() + 50, fullscreenButton
+					.getPosition().getY());
+		}
 	}
 
 }
