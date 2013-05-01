@@ -51,7 +51,7 @@ public class InGameState extends BasicGameState {
 
 		//Add a player
 		Entity player = new Entity("player");
-		AnimationRenderComponent temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero2.png")}, 10);
+		AnimationRenderComponent temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero3.png"), new Image("res/sprites/hero/hero4.png"), new Image("res/sprites/hero/hero5.png") }, 10);
 		//ImageRenderComponent temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/hero/hero1.png"));
 		player.AddComponent(temp2);
 		player.setRadius(temp2.getRadius());
