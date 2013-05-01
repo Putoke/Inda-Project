@@ -1,14 +1,11 @@
 package components;
 
 
-import java.util.ArrayList;
 
 import game.Controller;
 import game.InGameState;
 
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;

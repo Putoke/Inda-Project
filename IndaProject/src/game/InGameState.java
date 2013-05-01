@@ -3,7 +3,6 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -59,6 +58,7 @@ public class InGameState extends BasicGameState {
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
 		player.setPosition(new Vector2f(400, 300));
 		player.setHealth(100);
+		player.AddComponent(new HealthBarComponent("PlayerHealthBar"));
 		entities.add(player);
 		
 		//Adds a wave of enemies. TODO make better!
