@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -40,6 +41,7 @@ public class InGameState extends BasicGameState {
 		//add a base
 		Entity base = new Entity("base");
 		ImageRenderComponent temp = new ImageRenderComponent("house", new Image("res/sprites/House.png"));
+		//AnimationRenderComponent temp2 = new AnimationRenderComponent("house", new Image[] {new Image("res/sprites/House.png")}, 10);
 		base.AddComponent(temp);
 		base.setRadius(temp.getRadius());
 		base.setPosition(new Vector2f(Game.centerWidth, Game.centerHeight));
@@ -50,14 +52,14 @@ public class InGameState extends BasicGameState {
 
 		//Add a player
 		Entity player = new Entity("player");
-		temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/hero/hero1.png"));
-		player.AddComponent(temp);
-		player.setRadius(temp.getRadius());
+		AnimationRenderComponent temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero2.png")}, 10);
+		//ImageRenderComponent temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/hero/hero1.png"));
+		player.AddComponent(temp2);
+		player.setRadius(temp2.getRadius());
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
 		player.setPosition(new Vector2f(400, 300));
 		player.setHealth(100);
 		entities.add(player);
-		
 		
 		//Adds a wave of enemies. TODO make better!
 		Random random = new Random();
@@ -87,7 +89,6 @@ public class InGameState extends BasicGameState {
 		for (Entity e : shots) {
 			e.render(gc, sb, g);
 		}	
-
 	}
 
 	@Override
