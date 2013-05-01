@@ -16,8 +16,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class SettingsState extends BasicGameState {
 
 	public static final int ID = 3;
-	private int centerHeight = Game.app.getHeight() / 2;
-	private int centerWidth = Game.app.getWidth() / 2;
+	//private int centerHeight = Game.app.getHeight() / 2;
+	//private int centerWidth = Game.app.getWidth() / 2;
 	
 	private ArrayList<MenuButton> buttons;
 	private MenuButton musicButton, fullscreenButton, backButton;
@@ -31,16 +31,16 @@ public class SettingsState extends BasicGameState {
 		check = new Image("res/buttons/check.png");
 		cross = new Image("res/buttons/cross.png");
 
-		musicButton = new MenuButton("musicButton", new Vector2f(centerWidth - 100,
-				centerHeight - 125), new Image("res/buttons/music.png"));
+		musicButton = new MenuButton("musicButton", new Vector2f(Game.centerWidth - 100,
+				Game.centerHeight - 125), new Image("res/buttons/music.png"));
 		buttons.add(musicButton);
 		
-		fullscreenButton = new MenuButton("fullscreenButton", new Vector2f(centerWidth - 100,
-				centerHeight), new Image("res/buttons/fullscreen.png"));
+		fullscreenButton = new MenuButton("fullscreenButton", new Vector2f(Game.centerWidth - 100,
+				Game.centerHeight), new Image("res/buttons/fullscreen.png"));
 		buttons.add(fullscreenButton);
 		
-		backButton = new MenuButton("backButton", new Vector2f(centerWidth - 100,
-				centerHeight + 125), new Image("res/buttons/back.png"));
+		backButton = new MenuButton("backButton", new Vector2f(Game.centerWidth - 100,
+				Game.centerHeight + 125), new Image("res/buttons/back.png"));
 		buttons.add(backButton);
 		
 	}
