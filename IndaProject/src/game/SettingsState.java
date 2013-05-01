@@ -16,9 +16,6 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class SettingsState extends BasicGameState {
 
 	public static final int ID = 3;
-	//private int centerHeight = Game.app.getHeight() / 2;
-	//private int centerWidth = Game.app.getWidth() / 2;
-	
 	private ArrayList<MenuButton> buttons;
 	private MenuButton musicButton, fullscreenButton, backButton;
 

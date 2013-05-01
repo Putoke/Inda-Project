@@ -12,8 +12,8 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Game extends StateBasedGame {
 	private static Music music;
 	private static DisplayMode dispMode;
-	public static AppGameContainer app;
 	
+	public static AppGameContainer app;
 	public static int centerHeight;
 	public static int centerWidth;
 	

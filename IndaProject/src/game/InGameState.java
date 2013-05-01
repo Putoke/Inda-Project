@@ -46,19 +46,18 @@ public class InGameState extends BasicGameState {
 		base.setHealth(100);
 		base.AddComponent(new HealthBarComponent("BaseHealthBar"));
 		entities.add(base);
-		
-		
-		
+
 
 		//Add a player
 		Entity player = new Entity("player");
-		temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/Character.png"));
+		temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/hero/hero1.png"));
 		player.AddComponent(temp);
 		player.setRadius(temp.getRadius());
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
 		player.setPosition(new Vector2f(400, 300));
 		player.setHealth(100);
 		entities.add(player);
+		
 		
 		//Adds a wave of enemies. TODO make better!
 		Random random = new Random();
