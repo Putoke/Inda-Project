@@ -51,8 +51,7 @@ public class InGameState extends BasicGameState {
 
 		//Add a player
 		Entity player = new Entity("player");
-		AnimationRenderComponent temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero3.png"), new Image("res/sprites/hero/hero4.png"), new Image("res/sprites/hero/hero5.png") }, 10);
-		//ImageRenderComponent temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/hero/hero1.png"));
+		AnimationRenderComponent temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero3.png"), new Image("res/sprites/hero/hero5.png") }, 300);
 		player.AddComponent(temp2);
 		player.setRadius(temp2.getRadius());
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
@@ -116,6 +115,7 @@ public class InGameState extends BasicGameState {
 			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
 					200));
 		}
+		
 	}
 	
 	private boolean collision(Entity e1, Entity e2){
