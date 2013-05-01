@@ -12,7 +12,7 @@ public class EnemyMovementComponent extends Component{
 	
 	public EnemyMovementComponent(String id){
 		this.id = id;
-		speed = 0.1f;
+		speed = 0.01f;
 	}
 
 	@Override
