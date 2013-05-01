@@ -3,6 +3,7 @@ package components;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -10,11 +11,11 @@ public class HealthBarComponent extends RenderComponent{
 
 	private Image damage, health, bar;
 
-	public HealthBarComponent(String id, Image damage, Image health, Image bar) {
+	public HealthBarComponent(String id) throws SlickException {
 		super(id);
-		this.damage = damage;
-		this.health = health;
-		this.bar = bar;
+		damage = new Image("res/sprites/damage.png");
+		health = new Image("res/sprites/health.png");
+		bar = new Image("res/sprites/bar.png");
 	}
 
 	@Override

@@ -13,6 +13,10 @@ public class Game extends StateBasedGame {
 	private static Music music;
 	private static DisplayMode dispMode;
 	public static AppGameContainer app;
+	
+	public static int centerHeight;
+	public static int centerWidth;
+	
 
 	public Game() {
 		super("Redneck Simulator 2 Super HD Turbo Remix");
@@ -29,6 +33,9 @@ public class Game extends StateBasedGame {
 
 	@Override
 	public void initStatesList(GameContainer arg0) throws SlickException {
+		centerHeight = app.getHeight() / 2;
+		centerWidth = app.getWidth() / 2;
+		
 		addState(new MenuState());
 		addState(new InGameState());
 		addState(new SettingsState());
@@ -60,6 +67,8 @@ public class Game extends StateBasedGame {
 			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
 			app.start();
+			
+			
 			
 
 		} catch (SlickException e) {

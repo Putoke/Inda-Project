@@ -12,6 +12,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
 import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import components.*;
@@ -35,10 +36,23 @@ public class InGameState extends BasicGameState {
 				new Image("res/sprites/background.png")));
 		background.setHealth(1);
 		entities.add(background);
+		
+		//add a base
+		Entity base = new Entity("base");
+		ImageRenderComponent temp = new ImageRenderComponent("house", new Image("res/sprites/House.png"));
+		base.AddComponent(temp);
+		base.setRadius(temp.getRadius());
+		base.setPosition(new Vector2f(Game.centerWidth, Game.centerHeight));
+		base.setHealth(100);
+		base.AddComponent(new HealthBarComponent("BaseHealthBar"));
+		entities.add(base);
+		
+		
+		
 
 		//Add a player
 		Entity player = new Entity("player");
-		ImageRenderComponent temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/Character.png"));
+		temp = new ImageRenderComponent("PlayerRender", new Image("res/sprites/Character.png"));
 		player.AddComponent(temp);
 		player.setRadius(temp.getRadius());
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));
@@ -56,10 +70,9 @@ public class InGameState extends BasicGameState {
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
 			enemy.setPosition(new Vector2f(random.nextInt(1920), random.nextInt(1080)));
 			enemy.setHealth(10);
-			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar", new Image("res/sprites/damage.png"), new Image("res/sprites/health.png"), new Image("res/sprites/bar.png")));
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemies.add(enemy);
 		}
-
 
 	}
 
@@ -100,7 +113,8 @@ public class InGameState extends BasicGameState {
 		if (Controller.isShortcutPressed("Fullscreen", input))
 			Game.app.setFullscreen(!Game.app.isFullscreen());
 		if (Controller.isShortcutPressed("Menu", input)) {
-			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), null);
+			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
+					200));
 		}
 	}
 	
