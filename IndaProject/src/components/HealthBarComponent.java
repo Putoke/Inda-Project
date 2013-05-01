@@ -22,10 +22,11 @@ public class HealthBarComponent extends RenderComponent{
 	public void render(GameContainer gc, StateBasedGame sb, Graphics gr) {
 		Vector2f pos = owner.getPosition();
 		float scale = owner.getScale();
+		float posX = pos.x + owner.getRadius();
 
-		damage.draw(pos.x - owner.getRadius(), pos.y - 30, scale);
-		health.draw(pos.x - owner.getRadius(), pos.y - 30, (float)(owner.getHealth())/(float)(owner.getMaximumHealth()) * health.getWidth(), health.getHeight());
-		bar.draw(pos.x - owner.getRadius(), pos.y - 30, scale);
+		damage.draw(posX - damage.getWidth()/2, pos.y - 30, scale);
+		health.draw(posX - health.getWidth()/2, pos.y - 30, (float)(owner.getHealth())/(float)(owner.getMaximumHealth()) * health.getWidth(), health.getHeight());
+		bar.draw(posX - bar.getWidth()/2, pos.y - 30, scale);
 
 	}
 
