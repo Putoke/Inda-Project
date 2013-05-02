@@ -1,6 +1,7 @@
 package components;
 
 import game.Game;
+import game.InGameState;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.geom.Vector2f;
@@ -12,7 +13,7 @@ public class EnemyMovementComponent extends Component{
 	
 	public EnemyMovementComponent(String id){
 		this.id = id;
-		speed = 0.01f;
+		speed = 0.05f;
 	}
 
 	@Override
@@ -20,7 +21,18 @@ public class EnemyMovementComponent extends Component{
 		float rotation = owner.getRotation();
 		Vector2f position = owner.getPosition();
 		
-		rotation = (float) Math.toDegrees(Math.atan2(position.y - Game.app.getHeight()/2, position.x - Game.app.getWidth()/2)) + 90;
+		float dx = position.x - InGameState.playerPosition.x;
+		float dy = position.y - InGameState.playerPosition.y;
+		float distance = dx * dx + dy * dy;
+		dx = position.x - Game.centerWidth;
+		dy = position.y - Game.centerHeight;
+		float distance2 = dx * dx + dy * dy;
+		
+		if(distance2 < distance){
+			rotation = (float) Math.toDegrees(Math.atan2(position.y - Game.centerHeight, position.x - Game.centerWidth)) + 90;
+		} else {
+			rotation = (float) Math.toDegrees(Math.atan2(position.y - InGameState.playerPosition.y, position.x - InGameState.playerPosition.x)) + 90;
+		}
 		
 		float hip = -speed * delta;
 
