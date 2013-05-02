@@ -45,7 +45,7 @@ public class Level {
 	
 	
 	private void createLevels() throws SlickException {
-		Random random = new Random();
+		
 		
 		//level 0
 		for(int i=0; i<5; i++){
@@ -54,7 +54,7 @@ public class Level {
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.05f));
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), random.nextInt(Game.app.getHeight())));
+			setPosition(enemy, temp);
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(5);
@@ -69,7 +69,7 @@ public class Level {
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), random.nextInt(Game.app.getHeight())));
+			setPosition(enemy, temp);
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
@@ -78,6 +78,22 @@ public class Level {
 		}
 	}
 	
+	private void setPosition(Entity enemy, ImageRenderComponent temp){
+		Random random = new Random();
+		int side = random.nextInt(4) + 1;
+		if(side == 1){
+			enemy.setPosition(new Vector2f(0, random.nextInt(Game.app.getHeight())));
+		}
+		if(side == 2){
+			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), Game.app.getHeight() - temp.getRadius()*2));
+		}
+		if(side == 3){
+			enemy.setPosition(new Vector2f(Game.app.getWidth() - temp.getRadius()*2, random.nextInt(Game.app.getHeight())));
+		}
+		if(side == 4){
+			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), 0));
+		}
+	}
 	
 
 }
