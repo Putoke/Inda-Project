@@ -78,7 +78,7 @@ public class Level {
 		}
 	}
 	
-	private void setPosition(Entity enemy, ImageRenderComponent temp){
+	private void setPosition(Entity enemy, ImageRenderComponent temp ){
 		Random random = new Random();
 		int side = random.nextInt(4) + 1;
 		if(side == 1){
