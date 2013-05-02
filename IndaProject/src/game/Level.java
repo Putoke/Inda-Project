@@ -14,7 +14,7 @@ import components.ImageRenderComponent;
 
 public class Level {
 	
-	private static final int levels = 2;
+	private static final int levels = 6;
 	private int currentLevel;
 	private ArrayList<ArrayList<Entity>> enemies;
 	
@@ -52,7 +52,7 @@ public class Level {
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.05f));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
 			setPosition(enemy, temp);
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
@@ -67,13 +67,68 @@ public class Level {
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
-			setPosition(enemy, temp);
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.1f));
+			setPosition(enemy, temp);
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
 			enemies.get(1).add(enemy);
+		}
+		
+		//level 2
+		for (int i=0; i<0; i++) {
+			Entity enemy = new Entity("enemy3");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
+			enemy.AddComponent(temp);
+			enemy.setRadius(temp.getRadius());
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			setPosition(enemy, temp);
+			enemy.setHealth(10);
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(7);
+			enemies.get(2).add(enemy);
+		}
+		
+		//level 3
+		for (int i=0; i<0; i++) {
+			Entity enemy = new Entity("enemy4");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
+			enemy.AddComponent(temp);
+			enemy.setRadius(temp.getRadius());
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			setPosition(enemy, temp);
+			enemy.setHealth(10);
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(7);
+			enemies.get(3).add(enemy);
+		}
+		
+		//level 4
+		for (int i=0; i<0; i++) {
+			Entity enemy = new Entity("enemy5");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
+			enemy.AddComponent(temp);
+			enemy.setRadius(temp.getRadius());
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			setPosition(enemy, temp);
+			enemy.setHealth(10);
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(7);
+			enemies.get(4).add(enemy);
+		}
+		
+		//level 5 BOSS
+		for (int i=0; i<1; i++) {
+			Entity enemy = new Entity("enemy6");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/boss.png"));
+			enemy.AddComponent(temp);
+			enemy.setRadius(temp.getRadius());
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.01f));
+			setPosition(enemy, temp);
+			enemy.setHealth(10);
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(7);
+			enemies.get(5).add(enemy);
 		}
 	}
 	
