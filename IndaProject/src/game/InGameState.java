@@ -122,7 +122,10 @@ public class InGameState extends BasicGameState {
 		
 		// get next wave of enemies
 		if (levelCleared()) {
-			enemies = levels.getNextLevel();
+			ArrayList<Entity> temp = levels.getNextLevel();
+			if (temp != null) {
+				enemies = temp;
+			}
 		}
 		
 		

@@ -37,7 +37,10 @@ public class Level {
 	
 	public ArrayList<Entity> getNextLevel() {
 		currentLevel++;
-		return enemies.get(currentLevel-1);
+		if (currentLevel <= levels) {
+			return enemies.get(currentLevel-1);
+		}
+		return null;
 	}
 	
 	
