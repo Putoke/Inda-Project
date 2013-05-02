@@ -23,7 +23,6 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
-	public AnimationRenderComponent temp2;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
@@ -41,7 +40,6 @@ public class InGameState extends BasicGameState {
 		//add a base
 		Entity base = new Entity("base");
 		ImageRenderComponent temp = new ImageRenderComponent("house", new Image("res/sprites/House.png"));
-		//AnimationRenderComponent temp2 = new AnimationRenderComponent("house", new Image[] {new Image("res/sprites/House.png")}, 10);
 		base.AddComponent(temp);
 		base.setRadius(temp.getRadius());
 		base.setPosition(new Vector2f(Game.centerWidth, Game.centerHeight));
@@ -50,9 +48,10 @@ public class InGameState extends BasicGameState {
 		entities.add(base);
 
 
-		//Add a player
+		//Add a player		
 		Entity player = new Entity("player");
-		temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero1.png") }, 300);
+		ImageRenderComponent temp2 = new ImageRenderComponent("playerRender", new Image("res/sprites/hero/hero1.png"));
+		//temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero1.png")}, 300);
 		player.AddComponent(temp2);
 		player.setRadius(temp2.getRadius());
 		player.AddComponent(new PlayerMovementComponent("PlayerMovement"));

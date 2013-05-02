@@ -5,8 +5,8 @@ package components;
 import game.Controller;
 import game.InGameState;
 
-import org.newdawn.slick.Game;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
