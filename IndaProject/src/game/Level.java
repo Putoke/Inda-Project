@@ -47,7 +47,7 @@ public class Level {
 	private void createLevels() throws SlickException {
 		
 		//level 0
-		for(int i=0; i<100; i++){
+		for(int i=0; i<10; i++){
 			Entity enemy = new Entity("enemy");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy.png"));
 			enemy.AddComponent(temp);
@@ -62,7 +62,7 @@ public class Level {
 		}
 		
 		//level 1
-		for (int i=0; i<100; i++) {
+		for (int i=0; i<10; i++) {
 			Entity enemy = new Entity("enemy2");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
 			enemy.AddComponent(temp);
