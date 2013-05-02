@@ -95,7 +95,7 @@ public class InGameState extends BasicGameState {
 			if(collision(e1, entities.get(1))){
 				entities.get(1).damage(e1.getDamage());
 				e1.setHealth(0);
-				if(entities.get(0).getHealth() <= 0){
+				if(entities.get(1).getHealth() <= 0){
 					System.exit(0);
 				}
 			}
@@ -103,7 +103,7 @@ public class InGameState extends BasicGameState {
 			if(collision(e1, entities.get(2))){
 				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
-				if(entities.get(1).getHealth() <= 1){
+				if(entities.get(2).getHealth() <= 1){
 					System.exit(0);
 				}
 			}
