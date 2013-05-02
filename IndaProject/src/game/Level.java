@@ -94,5 +94,8 @@ public class Level {
 		}
 	}
 	
+	public int getCurrentLevel() {
+		return currentLevel++;
+	}
 
 }
