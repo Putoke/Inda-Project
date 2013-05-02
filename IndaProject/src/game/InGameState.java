@@ -23,9 +23,11 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
+	private Level levels;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
+		levels = new Level();
 		entities = new ArrayList<Entity>();
 		shots = new ArrayList<Entity>();
 		enemies = new ArrayList<Entity>();
@@ -60,20 +62,9 @@ public class InGameState extends BasicGameState {
 		player.AddComponent(new HealthBarComponent("PlayerHealthBar"));
 		entities.add(player);
 		
-		//Adds a wave of enemies. TODO make better!
-		Random random = new Random();
-		for(int i=0; i<10; i++){
-			Entity enemy = new Entity("enemy");
-			temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemy.png"));
-			enemy.AddComponent(temp);
-			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), random.nextInt(Game.app.getHeight())));
-			enemy.setHealth(10);
-			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemies.add(enemy);
-		}
-
+		// get first wave
+		enemies = levels.getNextLevel();
+		
 	}
 
 	@Override
@@ -116,6 +107,17 @@ public class InGameState extends BasicGameState {
 					200));
 		}
 		
+		// get next wave of enemies
+		if (levelCleared()) {
+			enemies = levels.getNextLevel();
+		}
+		
+		
+	}
+	
+	
+	private boolean levelCleared() {
+		return enemies.isEmpty();
 	}
 	
 	private boolean collision(Entity e1, Entity e2){
@@ -158,6 +160,10 @@ public class InGameState extends BasicGameState {
 	@Override
 	public int getID() {
 		return ID;
+	}
+	
+	public ArrayList<Entity> getEnemies() {
+		return enemies;
 	}
 	
 }
