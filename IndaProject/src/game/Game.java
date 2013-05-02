@@ -16,7 +16,7 @@ public class Game extends StateBasedGame {
 	public static AppGameContainer app;
 	public static int centerHeight;
 	public static int centerWidth;
-	
+	public static boolean hitBox;
 
 	public Game() {
 		super("Redneck Simulator 2 Super HD Turbo Remix");
@@ -26,6 +26,7 @@ public class Game extends StateBasedGame {
 			e.printStackTrace();
 		}
 		
+		hitBox = false;
 		music.loop();
 		music.pause();
 		Controller.init();

@@ -23,6 +23,8 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
+	
+	public static Vector2f playerPosition;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
@@ -39,10 +41,10 @@ public class InGameState extends BasicGameState {
 		
 		//add a base
 		Entity base = new Entity("base");
-		ImageRenderComponent temp = new ImageRenderComponent("house", new Image("res/sprites/House.png"));
+		ImageRenderComponent temp = new ImageRenderComponent("house", new Image("res/sprites/house.png"));
 		base.AddComponent(temp);
 		base.setRadius(temp.getRadius());
-		base.setPosition(new Vector2f(Game.centerWidth, Game.centerHeight));
+		base.setPosition(new Vector2f(Game.centerWidth - base.getRadius(), Game.centerHeight - temp.getRadius()));
 		base.setHealth(100);
 		base.AddComponent(new HealthBarComponent("BaseHealthBar"));
 		entities.add(base);
@@ -59,6 +61,7 @@ public class InGameState extends BasicGameState {
 		player.setHealth(100);
 		player.AddComponent(new HealthBarComponent("PlayerHealthBar"));
 		entities.add(player);
+		playerPosition = player.getPosition();
 		
 		//Adds a wave of enemies. TODO make better!
 		Random random = new Random();
@@ -97,11 +100,19 @@ public class InGameState extends BasicGameState {
 		updateEntityArray(shots, gc, sb, delta);
 		updateEntityArray(enemies, gc, sb, delta);
 		
-		for(Entity e1 : shots){
-			for(Entity e2 : enemies){
+		for(Entity e1 : enemies){
+			if(collision(e1, entities.get(1))){
+				entities.get(1).damage(1);
+				e1.setHealth(0);
+			}
+			if(collision(e1, entities.get(2))){
+				entities.get(2).damage(1);
+				e1.setHealth(0);
+			}
+			for(Entity e2 : shots){
 				if(collision(e1, e2)){
-					e2.damage(2);
-					e1.setHealth(0);
+					e1.damage(2);
+					e2.setHealth(0);
 				}
 			}
 		}
@@ -115,13 +126,16 @@ public class InGameState extends BasicGameState {
 			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
 					200));
 		}
+		if(Controller.isShortcutPressed("Hitbox", input)){
+			Game.hitBox = !Game.hitBox;
+		}
 		
 	}
 	
 	private boolean collision(Entity e1, Entity e2){
 		float radii = e1.getRadius() + e2.getRadius();
-		float dx = e2.getPosition().x - e1.getPosition().x + radii;
-		float dy = e2.getPosition().y - e1.getPosition().y + radii;
+		float dx = e2.getPosition().x + e2.getRadius() - e1.getPosition().x - e1.getRadius();
+		float dy = e2.getPosition().y + e2.getRadius() - e1.getPosition().y - e1.getRadius();
 		if( dx * dx + dy * dy < radii * radii){
 			return true;
 		}

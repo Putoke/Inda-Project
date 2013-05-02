@@ -70,5 +70,6 @@ public final class Controller {
 		shortcuts = new HashMap<String, Integer>();
 		addShortcut("Fullscreen", Input.KEY_F11);
 		addShortcut("Menu", Input.KEY_ESCAPE);
+		addShortcut("Hitbox", Input.KEY_F5);
 	}
 }

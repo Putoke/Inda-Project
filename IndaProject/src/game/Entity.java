@@ -36,8 +36,9 @@ public class Entity {
 	}
 
 	public void AddComponent(Component component) {
-		if (RenderComponent.class.isInstance(component))
+		if (RenderComponent.class.isInstance(component)){
 			renderComponent.add((RenderComponent) component);
+		}
 
 		component.setOwnerEntity(this);
 		components.add(component);
