@@ -11,9 +11,9 @@ public class EnemyMovementComponent extends Component{
 	
 	private float speed;
 	
-	public EnemyMovementComponent(String id){
+	public EnemyMovementComponent(String id, float speed){
 		this.id = id;
-		speed = 0.05f;
+		this.speed = speed;
 	}
 
 	@Override

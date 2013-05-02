@@ -26,7 +26,7 @@ public class HealthBarComponent extends RenderComponent{
 
 		damage.draw(posX - damage.getWidth()/2, pos.y - 30, scale);
 		health.draw(posX - health.getWidth()/2, pos.y - 30, (float)(owner.getHealth())/(float)(owner.getMaximumHealth()) * health.getWidth(), health.getHeight());
-		bar.draw(posX - bar.getWidth()/2, pos.y - 30, scale);
+		bar.draw(posX - bar.getWidth()/2, pos.y - 30);
 
 	}
 

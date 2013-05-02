@@ -50,10 +50,11 @@ public class Level {
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemy.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.05f));
 			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), random.nextInt(Game.app.getHeight())));
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(5);
 			
 			enemies.get(0).add(enemy);
 		}
@@ -64,10 +65,12 @@ public class Level {
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemy2.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement"));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
 			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), random.nextInt(Game.app.getHeight())));
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(7);
+			
 			enemies.get(1).add(enemy);
 		}
 	}

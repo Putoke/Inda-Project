@@ -20,6 +20,7 @@ public class Entity {
 	private int health;
 	private int currentHealth;
 	private float radius;
+	private int damage;
 	//
 	private ArrayList<RenderComponent> renderComponent = null;
 	private ArrayList<Component> components = null;
@@ -127,5 +128,13 @@ public class Entity {
 	
 	public ArrayList<Component> getComponents() {
 		return components;
+	}
+	
+	public int getDamage(){
+		return damage;
+	}
+	
+	public void setDamage(int damage){
+		this.damage = damage;
 	}
 }

@@ -46,7 +46,7 @@ public class InGameState extends BasicGameState {
 		base.AddComponent(temp);
 		base.setRadius(temp.getRadius());
 		base.setPosition(new Vector2f(Game.centerWidth - base.getRadius(), Game.centerHeight - temp.getRadius()));
-		base.setHealth(100);
+		base.setHealth(200);
 		base.AddComponent(new HealthBarComponent("BaseHealthBar"));
 		entities.add(base);
 
@@ -91,12 +91,17 @@ public class InGameState extends BasicGameState {
 		updateEntityArray(enemies, gc, sb, delta);
 		
 		for(Entity e1 : enemies){
+			//Check if enemy collides with house
 			if(collision(e1, entities.get(1))){
-				entities.get(1).damage(1);
+				entities.get(1).damage(e1.getDamage());
 				e1.setHealth(0);
+				if(entities.get(0).getHealth() <= 0){
+					System.exit(0);
+				}
 			}
+			//Check if enemy collides with player
 			if(collision(e1, entities.get(2))){
-				entities.get(2).damage(1);
+				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
 			}
 			for(Entity e2 : shots){
