@@ -52,8 +52,6 @@ public class Game extends StateBasedGame {
 				dispMode = modes[0];
 				for (int i=0;i<modes.length;i++) {
 		             DisplayMode current = modes[i];
-		             System.out.println(current.getWidth() + "x" + current.getHeight() + "x" +
-		                                 current.getBitsPerPixel() + " " + current.getFrequency() + "Hz");
 		             if(modes[i].getWidth() > dispMode.getWidth()){
 		            	 dispMode = modes[i];
 		             }
