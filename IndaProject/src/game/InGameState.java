@@ -103,6 +103,9 @@ public class InGameState extends BasicGameState {
 			if(collision(e1, entities.get(2))){
 				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
+				if(entities.get(1).getHealth() <= 1){
+					System.exit(0);
+				}
 			}
 			for(Entity e2 : shots){
 				if(collision(e1, e2)){
