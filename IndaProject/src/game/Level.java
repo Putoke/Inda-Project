@@ -48,9 +48,9 @@ public class Level {
 		Random random = new Random();
 		
 		//level 0
-		for(int i=0; i<100; i++){
+		for(int i=0; i<5; i++){
 			Entity enemy = new Entity("enemy");
-			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemy.png"));
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.05f));
@@ -63,9 +63,9 @@ public class Level {
 		}
 		
 		//level 1
-		for (int i=0; i<100d; i++) {
+		for (int i=0; i<5; i++) {
 			Entity enemy = new Entity("enemy2");
-			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemy2.png"));
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.1f));
