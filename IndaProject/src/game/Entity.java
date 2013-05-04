@@ -138,4 +138,8 @@ public class Entity {
 	public void setDamage(int damage){
 		this.damage = damage;
 	}
+	
+	public ArrayList<RenderComponent> getRenderComponents() {
+		return renderComponent;
+	}
 }

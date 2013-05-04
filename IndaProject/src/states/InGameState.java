@@ -23,7 +23,7 @@ import components.*;
 
 public class InGameState extends BasicGameState {
 
-	public static final int ID = 1;
+	public static final int ID = 2;
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
@@ -56,6 +56,7 @@ public class InGameState extends BasicGameState {
 
 
 		//Add a player		
+		//Entity player = new Entity("player");
 		Entity player = new Entity("player");
 		ImageRenderComponent temp2 = new ImageRenderComponent("playerRender", new Image("res/sprites/hero/hero1.png"));
 		//temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero1.png")}, 300);
@@ -127,8 +128,8 @@ public class InGameState extends BasicGameState {
 		if (Controller.isShortcutPressed("Fullscreen", input))
 			Game.app.setFullscreen(!Game.app.isFullscreen());
 		if (Controller.isShortcutPressed("Menu", input)) {
-			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
-					200));
+			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 100), new FadeInTransition(Color.black,
+					100));
 		}
 		if(Controller.isShortcutPressed("Hitbox", input)){
 			Game.hitBox = !Game.hitBox;

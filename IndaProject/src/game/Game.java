@@ -10,8 +10,10 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
 import states.InGameState;
+import states.LoseState;
 import states.MenuState;
 import states.SettingsState;
+import states.WinState;
 
 
 public class Game extends StateBasedGame {
@@ -46,6 +48,8 @@ public class Game extends StateBasedGame {
 		addState(new MenuState());
 		addState(new InGameState());
 		addState(new SettingsState());
+		addState(new WinState());
+		addState(new LoseState());
 		
 		
 	}

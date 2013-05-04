@@ -21,7 +21,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 
 public class MenuState extends BasicGameState {
 
-	public static final int ID = 2;
+	public static final int ID = 1;
+	private static final int TRANSITION_DELAY = 100;
 
 	private ArrayList<MenuButton> buttons;
 	private MenuButton playButton, settingsButton, exitButton;
@@ -59,14 +60,14 @@ public class MenuState extends BasicGameState {
 		
 		if (playButton.isMousePressed()) {
 			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
-					200), new FadeInTransition(Color.black,
-							200));
+					TRANSITION_DELAY), new FadeInTransition(Color.black,
+							TRANSITION_DELAY));
 		}
 		
 		if (settingsButton.isMousePressed()) {
 			sb.enterState(SettingsState.ID, new FadeOutTransition(Color.black,
-					200), new FadeInTransition(Color.black,
-							200));
+					TRANSITION_DELAY), new FadeInTransition(Color.black,
+							TRANSITION_DELAY));
 		}
 		
 		if (exitButton.isMousePressed()) {
@@ -76,8 +77,8 @@ public class MenuState extends BasicGameState {
 		Input input = gc.getInput();
 		if (Controller.isShortcutPressed("Menu", input)) {
 			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
-					200), new FadeInTransition(Color.black,
-							200));
+					TRANSITION_DELAY), new FadeInTransition(Color.black,
+							TRANSITION_DELAY));
 		}
 
 	}

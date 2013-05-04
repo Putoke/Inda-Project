@@ -19,6 +19,8 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class SettingsState extends BasicGameState {
 
 	public static final int ID = 3;
+	private static final int TRANSITION_DELAY = 100;
+
 	private ArrayList<MenuButton> buttons;
 	private MenuButton musicButton, fullscreenButton, backButton;
 
@@ -76,7 +78,7 @@ public class SettingsState extends BasicGameState {
 		}
 		
 		if (backButton.isMousePressed()) {
-			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black, 200));
+			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, TRANSITION_DELAY), new FadeInTransition(Color.black, TRANSITION_DELAY));
 		}
 		
 	}
