@@ -9,6 +9,10 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import states.InGameState;
+import states.MenuState;
+import states.SettingsState;
+
 
 public class Game extends StateBasedGame {
 	private static Music music;

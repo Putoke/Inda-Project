@@ -1,11 +1,12 @@
 package components;
 
 import game.Game;
-import game.InGameState;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
+
+import states.InGameState;
 
 public class EnemyMovementComponent extends Component{
 	

@@ -1,4 +1,7 @@
-package game;
+package states;
+
+import game.Game;
+import game.MenuButton;
 
 import java.util.ArrayList;
 

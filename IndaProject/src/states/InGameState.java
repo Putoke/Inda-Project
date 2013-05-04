@@ -1,4 +1,9 @@
-package game;
+package states;
+
+import game.Controller;
+import game.Entity;
+import game.Game;
+import game.Level;
 
 import java.util.ArrayList;
 
@@ -22,12 +27,12 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
-	private Level levels;
+	private Level levelGenerator;
 	public static Vector2f playerPosition;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
-		levels = new Level();
+		levelGenerator = new Level();
 		entities = new ArrayList<Entity>();
 		shots = new ArrayList<Entity>();
 		enemies = new ArrayList<Entity>();
@@ -64,7 +69,7 @@ public class InGameState extends BasicGameState {
 		playerPosition = player.getPosition();
 		
 		// get first wave
-		enemies = levels.getNextLevel();
+		enemies = levelGenerator.getNextLevel();
 		
 	}
 
@@ -131,7 +136,7 @@ public class InGameState extends BasicGameState {
 		
 		// get next wave of enemies
 		if (levelCleared()) {
-			ArrayList<Entity> temp = levels.getNextLevel();
+			ArrayList<Entity> temp = levelGenerator.getNextLevel();
 			if (temp != null) {
 				enemies = temp;
 			}

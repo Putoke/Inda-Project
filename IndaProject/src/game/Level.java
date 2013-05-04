@@ -124,9 +124,9 @@ public class Level {
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.01f));
 			setPosition(enemy, temp);
-			enemy.setHealth(10);
+			enemy.setHealth(100);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(7);
+			enemy.setDamage(25);
 			enemies.get(5).add(enemy);
 		}
 	}
