@@ -9,6 +9,7 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+
 public class Game extends StateBasedGame {
 	private static Music music;
 	private static DisplayMode dispMode;
@@ -28,6 +29,7 @@ public class Game extends StateBasedGame {
 		
 		hitBox = false;
 		music.loop();
+		music.setVolume(0.1f);
 		music.pause();
 		Controller.init();
 	}
