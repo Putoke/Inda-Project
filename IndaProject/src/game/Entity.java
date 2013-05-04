@@ -34,6 +34,7 @@ public class Entity {
 		position = new Vector2f(0, 0);
 		scale = 1;
 		rotation = 0;
+		radius = 0;
 	}
 
 	public void AddComponent(Component component) {

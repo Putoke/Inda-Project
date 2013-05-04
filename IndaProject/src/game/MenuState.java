@@ -21,7 +21,7 @@ public class MenuState extends BasicGameState {
 
 	private ArrayList<MenuButton> buttons;
 	private MenuButton playButton, settingsButton, exitButton;
-
+	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
 		buttons = new ArrayList<MenuButton>();

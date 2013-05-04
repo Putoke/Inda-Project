@@ -33,7 +33,6 @@ public class ImageRenderComponent extends RenderComponent {
 
 	@Override
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
-
 		image.rotate(owner.getRotation() - image.getRotation());
 	}
 	
