@@ -1,9 +1,11 @@
 package states;
 
+import game.Camera;
 import game.Controller;
 import game.Entity;
 import game.Game;
 import game.Level;
+import game.Player;
 
 import java.util.ArrayList;
 
@@ -56,7 +58,6 @@ public class InGameState extends BasicGameState {
 
 
 		//Add a player		
-		//Entity player = new Entity("player");
 		Entity player = new Entity("player");
 		ImageRenderComponent temp2 = new ImageRenderComponent("playerRender", new Image("res/sprites/hero/hero1.png"));
 		//temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero1.png")}, 300);

@@ -142,4 +142,12 @@ public class Entity {
 	public ArrayList<RenderComponent> getRenderComponents() {
 		return renderComponent;
 	}
+	
+	public float getX() {
+		return position.getX();
+	}
+	
+	public float getY() {
+		return position.getY();
+	}
 }
