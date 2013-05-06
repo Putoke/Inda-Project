@@ -7,7 +7,6 @@ import game.Level;
 
 import java.util.ArrayList;
 
-import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -30,9 +29,9 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> enemies;
 	private Level levelGenerator;
 	public static Vector2f playerPosition;
+	public static float playerRadius;
 	public static boolean finished;
 	
-
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
 		levelGenerator = new Level(1);
@@ -71,6 +70,7 @@ public class InGameState extends BasicGameState {
 		player.AddComponent(new HealthBarComponent("PlayerHealthBar"));
 		entities.add(player);
 		playerPosition = player.getPosition();
+		playerRadius = player.getRadius();
 		
 		// get first wave
 		enemies = levelGenerator.getNextLevel();
@@ -117,6 +117,7 @@ public class InGameState extends BasicGameState {
 				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
 				if(entities.get(2).getHealth() <= 0){
+					System.exit(0);
 					//player dead
 					sb.enterState(LoseState.ID);
 				}
@@ -192,7 +193,7 @@ public class InGameState extends BasicGameState {
 		} catch (SlickException e) {
 			System.err.println("Couldn't load shot image.");
 		}
-		newShot.AddComponent(new ShotComponent("Shot", rotation, position));
+		newShot.AddComponent(new ShotComponent("Shot", rotation, new Vector2f(position.x - newShot.getRadius(), position.y - newShot.getRadius())));
 		newShot.setHealth(1);
 		shots.add(newShot);
 	}
