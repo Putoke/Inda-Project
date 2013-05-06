@@ -42,7 +42,7 @@ public class PlayerMovementComponent extends Component {
 		float mouseX = input.getMouseX();
 		float mouseY = input.getMouseY();
 		
-		rotation = (float) Math.toDegrees(Math.atan2(position.y - mouseY, position.x - mouseX)) - 90;
+		rotation = (float) Math.toDegrees(Math.atan2(position.y + owner.getRadius() - mouseY, position.x + owner.getRadius() - mouseX)) - 90;
 
 		if (Controller.isP1ButtonPressed("Left", input) || Controller.isP1ButtonPressed("LeftAlt", input)) {
 			position.x -= 0.2f * delta;
@@ -61,7 +61,7 @@ public class PlayerMovementComponent extends Component {
 		}
 		
 		if(Controller.isP1ButtonPressed("Shoot", input) && shotCounter >= shotDelay){
-			InGameState.addShot(rotation, new Vector2f(position.x, position.y));
+			InGameState.addShot(rotation, new Vector2f(position.x + owner.getRadius(), position.y + owner.getRadius()));
 			shotCounter = 0;
 		}
 		
