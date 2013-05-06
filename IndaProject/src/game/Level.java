@@ -13,13 +13,15 @@ import components.ImageRenderComponent;
 
 public class Level {
 	
-	private static final int levels = 6;
+	private static final int levels = 7;
 	private int currentLevel;
 	private ArrayList<ArrayList<Entity>> enemies;
+	private boolean completed;
 	
-	public Level() throws SlickException {
+	public Level(int startLevel) throws SlickException {
 		enemies = new ArrayList<ArrayList<Entity>>();
-		currentLevel = 0;
+		currentLevel = startLevel-1;
+		completed = false;
 		
 		// create arrayLists
 		for (int i = 0; i < levels; i++) {
@@ -28,6 +30,13 @@ public class Level {
 
 		createLevels();
 		
+	}
+	
+	public boolean checkCompleted() {
+		if (currentLevel > levels) {
+			completed = true;
+		}
+		return completed;
 	}
 	
 	public ArrayList<Entity> getLevel(int index) {
@@ -85,7 +94,7 @@ public class Level {
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
-			enemies.get(3).add(enemy);
+			enemies.get(2).add(enemy);
 		}
 		
 		//level 4
@@ -99,7 +108,7 @@ public class Level {
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
-			enemies.get(4).add(enemy);
+			enemies.get(3).add(enemy);
 		}
 		
 		//level 5
@@ -113,7 +122,7 @@ public class Level {
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
-			enemies.get(5).add(enemy);
+			enemies.get(4).add(enemy);
 		}
 		
 		//level 6 BOSS
@@ -127,7 +136,7 @@ public class Level {
 			enemy.setHealth(100);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(25);
-			enemies.get(6).add(enemy);
+			enemies.get(5).add(enemy);
 		}
 	}
 	
