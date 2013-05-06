@@ -13,7 +13,7 @@ import components.ImageRenderComponent;
 
 public class Level {
 	
-	private static final int levels = 6;
+	private static final int levels = 7;
 	private int currentLevel;
 	private ArrayList<ArrayList<Entity>> enemies;
 	
