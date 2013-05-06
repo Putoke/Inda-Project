@@ -189,6 +189,7 @@ public class InGameState extends BasicGameState {
 		try {
 			ImageRenderComponent temp = new ImageRenderComponent("Shot Image", new Image("res/sprites/shot.png"));
 			newShot.AddComponent(temp);
+			newShot.setRotation(rotation - 90);
 			newShot.setRadius(temp.getRadius());
 		} catch (SlickException e) {
 			System.err.println("Couldn't load shot image.");
