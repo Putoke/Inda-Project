@@ -7,6 +7,7 @@ import game.Controller;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.Sound;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -17,10 +18,12 @@ public class PlayerMovementComponent extends Component {
 	private float direction;
 	private float speed;
 	private int shotDelay, shotCounter;
+	private Sound laserSound;
 
 	public PlayerMovementComponent(String id) throws SlickException {
 		this.id = id;
 		shotDelay = 100;
+		laserSound = new Sound("res/sounds/laser.ogg");
 	}
 
 	public float getSpeed() {
@@ -61,6 +64,7 @@ public class PlayerMovementComponent extends Component {
 		}
 		
 		if(Controller.isP1ButtonPressed("Shoot", input) && shotCounter >= shotDelay){
+			laserSound.play(1, 0.15f);
 			InGameState.addShot(rotation, new Vector2f(position.x, position.y));
 			shotCounter = 0;
 		}
