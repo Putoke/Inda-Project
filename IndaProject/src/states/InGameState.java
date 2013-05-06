@@ -9,6 +9,7 @@ import game.Player;
 
 import java.util.ArrayList;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -88,6 +89,8 @@ public class InGameState extends BasicGameState {
 			e.render(gc, sb, g);
 		}
 		
+		drawLevel(g);
+		
 		
 	}
 
@@ -119,6 +122,7 @@ public class InGameState extends BasicGameState {
 				if(collision(e1, e2)){
 					e1.damage(2);
 					e2.setHealth(0);
+					
 				}
 			}
 		}
@@ -140,7 +144,11 @@ public class InGameState extends BasicGameState {
 		if (levelCleared()) {
 			ArrayList<Entity> temp = levelGenerator.getNextLevel();
 			if (temp != null) {
-				enemies = temp;
+				if (temp.isEmpty() != true) {
+					sb.enterState(InGameState.ID, new FadeOutTransition(Color.black, 2000), null);
+					enemies = temp;
+				}
+				
 			}
 		}
 		
@@ -182,6 +190,7 @@ public class InGameState extends BasicGameState {
 		for(int i=0; i<array.size(); i++){
 			array.get(i).update(gc, sb, delta);
 			if(array.get(i).getHealth() <= 0){
+				
 				array.remove(i);
 				i--;
 			}
@@ -193,8 +202,19 @@ public class InGameState extends BasicGameState {
 		return ID;
 	}
 	
+	public void drawAnim(Graphics g, Vector2f pos) {
+		Animation anim = new Animation(new Image[] {}, 100);
+		
+		g.drawAnimation(anim, pos.x,pos.y );
+	}
+	
 	public ArrayList<Entity> getEnemies() {
 		return enemies;
+	}
+	
+	public void drawLevel(Graphics g){
+		String level = "Level: " +levelGenerator.getCurrentLevel();
+		g.drawString(level, 50, 100);
 	}
 	
 }

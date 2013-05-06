@@ -20,7 +20,7 @@ public class PlayerMovementComponent extends Component {
 
 	public PlayerMovementComponent(String id) throws SlickException {
 		this.id = id;
-		shotDelay = 500;
+		shotDelay = 100;
 	}
 
 	public float getSpeed() {
