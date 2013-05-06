@@ -1,11 +1,9 @@
 package states;
 
-import game.Camera;
 import game.Controller;
 import game.Entity;
 import game.Game;
 import game.Level;
-import game.Player;
 
 import java.util.ArrayList;
 

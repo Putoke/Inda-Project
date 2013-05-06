@@ -45,7 +45,7 @@ public class Level {
 	
 	private void createLevels() throws SlickException {
 		
-		//level 0
+		//level 1
 		for(int i=0; i<10; i++){
 			Entity enemy = new Entity("enemy");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy.png"));
@@ -60,7 +60,7 @@ public class Level {
 			enemies.get(0).add(enemy);
 		}
 		
-		//level 1
+		//level 2
 		for (int i=0; i<10; i++) {
 			Entity enemy = new Entity("enemy2");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
@@ -74,24 +74,10 @@ public class Level {
 			enemies.get(1).add(enemy);
 		}
 		
-		//level 2
-		for (int i=0; i<0; i++) {
-			Entity enemy = new Entity("enemy3");
-			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
-			enemy.AddComponent(temp);
-			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
-			setPosition(enemy, temp);
-			enemy.setHealth(10);
-			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(7);
-			enemies.get(2).add(enemy);
-		}
-		
 		//level 3
-		for (int i=0; i<0; i++) {
-			Entity enemy = new Entity("enemy4");
-			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
+		for (int i=0; i<10; i++) {
+			Entity enemy = new Entity("enemy3");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy3.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
@@ -104,8 +90,8 @@ public class Level {
 		
 		//level 4
 		for (int i=0; i<0; i++) {
-			Entity enemy = new Entity("enemy5");
-			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
+			Entity enemy = new Entity("enemy4");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy4.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
@@ -116,7 +102,21 @@ public class Level {
 			enemies.get(4).add(enemy);
 		}
 		
-		//level 5 BOSS
+		//level 5
+		for (int i=0; i<0; i++) {
+			Entity enemy = new Entity("enemy5");
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy5.png"));
+			enemy.AddComponent(temp);
+			enemy.setRadius(temp.getRadius());
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			setPosition(enemy, temp);
+			enemy.setHealth(10);
+			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
+			enemy.setDamage(7);
+			enemies.get(4).add(enemy);
+		}
+		
+		//level 6 BOSS
 		for (int i=0; i<1; i++) {
 			Entity enemy = new Entity("enemy6");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/boss.png"));
