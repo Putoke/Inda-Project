@@ -14,7 +14,7 @@ public class ShotComponent extends Component{
 	
 	public ShotComponent(String id, float rotation, Vector2f position){
 		this.id = id;
-		this.rotation = rotation;
+		this.rotation = rotation + 90;
 		this.position = new Vector2f(position.x, position.y);
 		speed = 2.0f;
 	}
@@ -22,8 +22,8 @@ public class ShotComponent extends Component{
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		float hip = speed * delta;
 
-		position.x += hip * Math.sin(Math.toRadians(rotation));
-		position.y -= hip * Math.cos(Math.toRadians(rotation));
+		position.x += hip * Math.sin(Math.toRadians(rotation - 90));
+		position.y -= hip * Math.cos(Math.toRadians(rotation - 90));
 		owner.setPosition(position);
 		owner.setRotation(rotation);
 		

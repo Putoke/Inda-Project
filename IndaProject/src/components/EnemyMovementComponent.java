@@ -21,9 +21,9 @@ public class EnemyMovementComponent extends Component{
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		float rotation = owner.getRotation();
 		Vector2f position = owner.getPosition();
-		
-		float dx = position.x - InGameState.playerPosition.x;
-		float dy = position.y - InGameState.playerPosition.y;
+				
+		float dx = position.x - InGameState.playerPosition.x + InGameState.playerRadius;
+		float dy = position.y - InGameState.playerPosition.y + InGameState.playerRadius;
 		float distance = dx * dx + dy * dy;
 		dx = position.x - Game.centerWidth;
 		dy = position.y - Game.centerHeight;

@@ -61,7 +61,7 @@ public class PlayerMovementComponent extends Component {
 		}
 		
 		if(Controller.isP1ButtonPressed("Shoot", input) && shotCounter >= shotDelay){
-			InGameState.addShot(rotation, position);
+			InGameState.addShot(rotation, new Vector2f(position.x, position.y));
 			shotCounter = 0;
 		}
 		
