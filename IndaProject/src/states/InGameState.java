@@ -208,7 +208,7 @@ public class InGameState extends BasicGameState {
 	
 	public void drawLevel(Graphics g){
 		String level = "Level: " +levelGenerator.getCurrentLevel();
-		g.drawString(level, 50, 100);
+		g.drawString(level, 50, 50);
 	}
 	
 }
