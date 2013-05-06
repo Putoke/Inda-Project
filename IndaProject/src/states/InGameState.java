@@ -185,12 +185,12 @@ public class InGameState extends BasicGameState {
 	
 	/**
 	 * Loops through the given array and updates every entity. If the entity's health reaches 0 or less it will be removed.
+	 * @throws SlickException 
 	 */
-	private void updateEntityArray(ArrayList<Entity> array, GameContainer gc, StateBasedGame sb, int delta){
+	private void updateEntityArray(ArrayList<Entity> array, GameContainer gc, StateBasedGame sb, int delta) throws SlickException{
 		for(int i=0; i<array.size(); i++){
 			array.get(i).update(gc, sb, delta);
 			if(array.get(i).getHealth() <= 0){
-				
 				array.remove(i);
 				i--;
 			}
@@ -200,12 +200,6 @@ public class InGameState extends BasicGameState {
 	@Override
 	public int getID() {
 		return ID;
-	}
-	
-	public void drawAnim(Graphics g, Vector2f pos) {
-		Animation anim = new Animation(new Image[] {}, 100);
-		
-		g.drawAnimation(anim, pos.x,pos.y );
 	}
 	
 	public ArrayList<Entity> getEnemies() {
