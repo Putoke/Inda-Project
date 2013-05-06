@@ -143,7 +143,7 @@ public class InGameState extends BasicGameState {
 			ArrayList<Entity> temp = levelGenerator.getNextLevel();
 			if (temp != null) {
 				if (temp.isEmpty() != true) {
-					sb.enterState(InGameState.ID, new FadeOutTransition(Color.black, 2000), null);
+					sb.enterState(InGameState.ID, null, null);
 					enemies = temp;
 				}
 				
