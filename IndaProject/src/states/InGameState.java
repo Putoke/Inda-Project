@@ -30,13 +30,16 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> enemies;
 	private Level levelGenerator;
 	public static Vector2f playerPosition;
+	public static boolean finished;
+	
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
-		levelGenerator = new Level();
+		levelGenerator = new Level(1);
 		entities = new ArrayList<Entity>();
 		shots = new ArrayList<Entity>();
 		enemies = new ArrayList<Entity>();
+		finished = false;
 
 		//Add a background
 		Entity background = new Entity("background");
@@ -105,15 +108,17 @@ public class InGameState extends BasicGameState {
 				entities.get(1).damage(e1.getDamage());
 				e1.setHealth(0);
 				if(entities.get(1).getHealth() <= 0){
-					System.exit(0);
+					//house dead
+					sb.enterState(LoseState.ID);
 				}
 			}
 			//Check if enemy collides with player
 			if(collision(e1, entities.get(2))){
 				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
-				if(entities.get(2).getHealth() <= 1){
-					System.exit(0);
+				if(entities.get(2).getHealth() <= 0){
+					//player dead
+					sb.enterState(LoseState.ID);
 				}
 			}
 			for(Entity e2 : shots){
@@ -150,7 +155,18 @@ public class InGameState extends BasicGameState {
 			}
 		}
 		
+		if (levelGenerator.checkCompleted()) {
+			finished = true;
+		}
 		
+		checkFinished(sb);
+		
+	}
+	
+	private void checkFinished(StateBasedGame sb) {
+		if (finished) {
+			sb.enterState(WinState.ID);
+		}
 	}
 	
 	private boolean levelCleared() {
