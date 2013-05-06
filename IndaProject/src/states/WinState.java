@@ -24,8 +24,7 @@ public class WinState extends BasicGameState {
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb)
 			throws SlickException {
-		Font f = new Font("Comic Sans", Font.ITALIC, 50);
-		ttf = new TrueTypeFont(f, true);
+		ttf = new TrueTypeFont(new Font("Comic Sans", Font.ITALIC, 50), true);
 		buttons = new ArrayList<MenuButton>();
 		
 		playButton = new MenuButton("play", new Vector2f(Game.centerWidth - 300 , Game.centerHeight -150), new Image("res/buttons/play.png"));
