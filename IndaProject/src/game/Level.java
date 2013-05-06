@@ -89,7 +89,7 @@ public class Level {
 		}
 		
 		//level 4
-		for (int i=0; i<0; i++) {
+		for (int i=0; i<10; i++) {
 			Entity enemy = new Entity("enemy4");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy4.png"));
 			enemy.AddComponent(temp);
@@ -103,7 +103,7 @@ public class Level {
 		}
 		
 		//level 5
-		for (int i=0; i<0; i++) {
+		for (int i=0; i<10; i++) {
 			Entity enemy = new Entity("enemy5");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy5.png"));
 			enemy.AddComponent(temp);
@@ -113,7 +113,7 @@ public class Level {
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
-			enemies.get(4).add(enemy);
+			enemies.get(5).add(enemy);
 		}
 		
 		//level 6 BOSS
@@ -127,7 +127,7 @@ public class Level {
 			enemy.setHealth(100);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(25);
-			enemies.get(5).add(enemy);
+			enemies.get(6).add(enemy);
 		}
 	}
 	
