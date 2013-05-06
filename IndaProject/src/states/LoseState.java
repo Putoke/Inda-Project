@@ -46,6 +46,14 @@ public class LoseState extends BasicGameState {
 		for (MenuButton button : buttons) {
 			button.render(gc, sb, g);
 		}
+		
+		if (playButton.isMousePressed()) {
+			// REINIT GAME
+		}
+		
+		if (exitButton.isMousePressed()) {
+			System.exit(0);
+		}
 	}
 
 	@Override

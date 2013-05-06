@@ -54,6 +54,14 @@ public class WinState extends BasicGameState {
 			button.update(gc, sb, delta);
 		}
 		
+		if (playButton.isMousePressed()) {
+			// REINIT GAME
+		}
+		
+		if (exitButton.isMousePressed()) {
+			System.exit(0);
+		}
+		
 	}
 
 	@Override
