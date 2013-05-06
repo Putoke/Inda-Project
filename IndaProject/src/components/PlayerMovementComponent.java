@@ -5,7 +5,9 @@ package components;
 import game.Controller;
 import game.Game;
 
+import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.Sound;
@@ -67,6 +69,14 @@ public class PlayerMovementComponent extends Component {
 		if(Controller.isP1ButtonPressed("Shoot", input) && shotCounter >= shotDelay){
 			laserSound.play(0.8f, 0.1f);
 			InGameState.addShot(rotation, new Vector2f(position.x + owner.getRadius(), position.y + owner.getRadius()));
+			
+			try {
+				Animation anim = new Animation(new Image[]{new Image("res/buttons/back.png")},1000);
+				gc.getGraphics().drawAnimation(anim,10,10);
+			} catch (SlickException e) {
+				e.printStackTrace();
+			}
+			
 			shotCounter = 0;
 		}
 		

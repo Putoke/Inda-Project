@@ -24,14 +24,18 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class MenuState extends BasicGameState {
 
 	public static final int ID = 1;
-	private static final int TRANSITION_DELAY = 100;
+	private static final int TRANSITION_DELAY = 0;
 
 	private ArrayList<MenuButton> buttons;
 	private MenuButton playButton, settingsButton, exitButton;
+	private boolean firstTime;
+	public static int fillAlpha;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
 		buttons = new ArrayList<MenuButton>();
+		firstTime = true;
+		fillAlpha = 255;
 		
 		playButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/play.png"));
 		buttons.add(playButton);
@@ -50,7 +54,8 @@ public class MenuState extends BasicGameState {
 		sb.getState(InGameState.ID).render(gc, sb, g);
 		
 		Rectangle r = new Rectangle(0, 0, Game.app.getWidth(), Game.app.getHeight());
-		GradientFill rFill = new GradientFill(0,0,new Color(0, 0, 0, 250),Game.app.getWidth(), Game.app.getHeight(),new Color(0, 0, 0, 175));
+		
+		GradientFill rFill = new GradientFill(0,0,new Color(0, 0, 0, fillAlpha),Game.app.getWidth(), Game.app.getHeight(),new Color(0, 0, 0, fillAlpha));
 		g.fill(r, rFill);
 		
 		
@@ -68,6 +73,10 @@ public class MenuState extends BasicGameState {
 		}
 		
 		if (playButton.isMousePressed()) {
+			if (firstTime) {
+				fillAlpha = 175;
+				firstTime = false;
+			}
 			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
 					TRANSITION_DELAY), new FadeInTransition(Color.black,
 							TRANSITION_DELAY));

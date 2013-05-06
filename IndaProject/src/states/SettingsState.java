@@ -21,7 +21,7 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class SettingsState extends BasicGameState {
 
 	public static final int ID = 3;
-	private static final int TRANSITION_DELAY = 100;
+	private static final int TRANSITION_DELAY = 0;
 
 	private ArrayList<MenuButton> buttons;
 	private MenuButton musicButton, fullscreenButton, backButton;
@@ -55,7 +55,7 @@ public class SettingsState extends BasicGameState {
 		
 		sb.getState(InGameState.ID).render(gc, sb, g);
 		Rectangle r = new Rectangle(0, 0, Game.app.getWidth(), Game.app.getHeight());
-		GradientFill rFill = new GradientFill(0,0,new Color(0, 0, 0, 175),Game.app.getWidth(), Game.app.getHeight(),new Color(0, 0, 0, 175));
+		GradientFill rFill = new GradientFill(0,0,new Color(0, 0, 0, MenuState.fillAlpha),Game.app.getWidth(), Game.app.getHeight(),new Color(0, 0, 0, MenuState.fillAlpha));
 		g.fill(r, rFill);
 		
 		for (MenuButton button : buttons) {
