@@ -3,6 +3,7 @@ package components;
 
 
 import game.Controller;
+import game.Game;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
@@ -67,6 +68,19 @@ public class PlayerMovementComponent extends Component {
 			laserSound.play(1, 0.15f);
 			InGameState.addShot(rotation, new Vector2f(position.x + owner.getRadius(), position.y + owner.getRadius()));
 			shotCounter = 0;
+		}
+		
+		if(position.x < 0){
+			position.x = 0;
+		}
+		if(position.y < 0){
+			position.y = 0;
+		}
+		if(position.x + owner.getRadius()*2 > Game.app.getWidth()){
+			position.x = Game.app.getWidth() - owner.getRadius()*2;
+		}
+		if(position.y + owner.getRadius()*2 > Game.app.getHeight()){
+			position.y = Game.app.getHeight() - owner.getRadius()*2;
 		}
 		
 		owner.setPosition(position);
