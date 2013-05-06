@@ -75,6 +75,7 @@ public class Game extends StateBasedGame {
 			app.setTargetFrameRate(60);
 			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
+			app.setUpdateOnlyWhenVisible(true);
 			app.start();
 			
 			

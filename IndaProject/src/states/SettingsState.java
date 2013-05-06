@@ -10,6 +10,8 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.fills.GradientFill;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -50,6 +52,12 @@ public class SettingsState extends BasicGameState {
 	@Override
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
+		
+		sb.getState(InGameState.ID).render(gc, sb, g);
+		Rectangle r = new Rectangle(0, 0, Game.app.getWidth(), Game.app.getHeight());
+		GradientFill rFill = new GradientFill(0,0,new Color(0, 0, 0, 175),Game.app.getWidth(), Game.app.getHeight(),new Color(0, 0, 0, 175));
+		g.fill(r, rFill);
+		
 		for (MenuButton button : buttons) {
 			button.render(gc, sb, g);
 		}

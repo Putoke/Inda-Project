@@ -2,7 +2,6 @@ package components;
 
 import game.Game;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -25,7 +24,7 @@ public class ImageRenderComponent extends RenderComponent {
 
 		image.draw(pos.x, pos.y, scale);
 		if(Game.hitBox){
-			gr.setColor(Color.red);
+			//gr.setColor(Color.red);
 			gr.drawOval(pos.x, pos.y, owner.getRadius()*2, owner.getRadius()*2);
 		}
 
