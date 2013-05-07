@@ -137,11 +137,11 @@ public class LevelGenerator {
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/boss.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.02f));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.18f));
 			setPosition(enemy, temp);
 			enemy.setHealth(10000);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(25);
+			enemy.setDamage(200);
 			enemies.get(5).add(enemy);
 		}
 	}
