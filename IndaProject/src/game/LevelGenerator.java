@@ -11,14 +11,14 @@ import components.EnemyMovementComponent;
 import components.HealthBarComponent;
 import components.ImageRenderComponent;
 
-public class Level {
+public class LevelGenerator {
 	
 	private static final int levels = 7;
 	private int currentLevel;
 	private ArrayList<ArrayList<Entity>> enemies;
 	private boolean completed;
 	
-	public Level(int startLevel) throws SlickException {
+	public LevelGenerator(int startLevel) throws SlickException {
 		enemies = new ArrayList<ArrayList<Entity>>();
 		currentLevel = startLevel-1;
 		completed = false;
@@ -46,7 +46,13 @@ public class Level {
 	public ArrayList<Entity> getNextLevel() {
 		currentLevel++;
 		if (currentLevel <= levels) {
-			return enemies.get(currentLevel-1);
+			ArrayList<Entity> temp = enemies.get(currentLevel-1);
+			for (Entity e : enemies.get(currentLevel-1)) {
+				e = null;
+			}
+			//return enemies.get(currentLevel-1);
+			return temp;
+			
 		}
 		return null;
 	}
@@ -144,16 +150,16 @@ public class Level {
 		Random random = new Random();
 		int side = random.nextInt(4) + 1;
 		if(side == 1){
-			enemy.setPosition(new Vector2f(0, random.nextInt(Game.app.getHeight())));
+			enemy.setPosition(new Vector2f(0-temp.getImage().getWidth(), random.nextInt(Game.app.getHeight())));
 		}
 		if(side == 2){
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), Game.app.getHeight() - temp.getRadius()*2));
+			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), Game.app.getHeight() - temp.getRadius()*2+temp.getImage().getHeight()));
 		}
 		if(side == 3){
-			enemy.setPosition(new Vector2f(Game.app.getWidth() - temp.getRadius()*2, random.nextInt(Game.app.getHeight())));
+			enemy.setPosition(new Vector2f(Game.app.getWidth() - temp.getRadius()*2 +temp.getImage().getWidth() , random.nextInt(Game.app.getHeight())));
 		}
 		if(side == 4){
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), 0));
+			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), 0 - temp.getImage().getHeight()));
 		}
 	}
 	

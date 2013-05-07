@@ -3,7 +3,7 @@ package states;
 import game.Controller;
 import game.Entity;
 import game.Game;
-import game.Level;
+import game.LevelGenerator;
 
 import java.util.ArrayList;
 
@@ -27,14 +27,16 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
-	private Level levelGenerator;
+	private LevelGenerator levelGenerator;
 	public static Vector2f playerPosition;
 	public static float playerRadius;
 	public static boolean finished;
+	private static final int TRANSITION_DELAY = 0;
+	private static final int STARTING_LEVEL = 1;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
-		levelGenerator = new Level(1);
+		levelGenerator = new LevelGenerator(STARTING_LEVEL);
 		entities = new ArrayList<Entity>();
 		shots = new ArrayList<Entity>();
 		enemies = new ArrayList<Entity>();
@@ -137,8 +139,8 @@ public class InGameState extends BasicGameState {
 		if (Controller.isShortcutPressed("Fullscreen", input))
 			Game.app.setFullscreen(!Game.app.isFullscreen());
 		if (Controller.isShortcutPressed("Menu", input)) {
-			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, 0), new FadeInTransition(Color.black,
-					0));
+			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, TRANSITION_DELAY), new FadeInTransition(Color.black,
+					TRANSITION_DELAY));
 		}
 		if(Controller.isShortcutPressed("Hitbox", input)){
 			Game.hitBox = !Game.hitBox;
