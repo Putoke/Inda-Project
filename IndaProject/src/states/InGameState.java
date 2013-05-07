@@ -119,7 +119,7 @@ public class InGameState extends BasicGameState {
 				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
 				if(entities.get(2).getHealth() <= 0){
-					System.exit(0);
+					//System.exit(0);
 					//player dead
 					sb.enterState(LoseState.ID);
 				}

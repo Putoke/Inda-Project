@@ -54,7 +54,8 @@ public class WinState extends BasicGameState {
 		}
 		
 		if (playButton.isMousePressed()) {
-			// REINIT GAME
+			sb.getState(InGameState.ID).init(gc, sb);
+			sb.enterState(InGameState.ID);
 		}
 		
 		if (exitButton.isMousePressed()) {

@@ -46,13 +46,6 @@ public class LoseState extends BasicGameState {
 			button.render(gc, sb, g);
 		}
 		
-		if (playButton.isMousePressed()) {
-			// REINIT GAME
-		}
-		
-		if (exitButton.isMousePressed()) {
-			System.exit(0);
-		}
 	}
 
 	@Override
@@ -60,6 +53,15 @@ public class LoseState extends BasicGameState {
 			throws SlickException {
 		for (MenuButton button : buttons) {
 			button.update(gc, sb, delta);
+		}
+		
+		if (playButton.isMousePressed()) {
+			sb.getState(InGameState.ID).init(gc, sb);
+			sb.enterState(InGameState.ID);
+		}
+		
+		if (exitButton.isMousePressed()) {
+			System.exit(0);
 		}
 		
 	}
