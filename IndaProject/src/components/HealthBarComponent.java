@@ -11,7 +11,6 @@ import org.newdawn.slick.state.StateBasedGame;
 public class HealthBarComponent extends RenderComponent{
 
 	private Image damage, health, bar;
-	//private TrueTypeFont ttf;
 	private String healthState;
 
 	public HealthBarComponent(String id) throws SlickException {
@@ -19,7 +18,6 @@ public class HealthBarComponent extends RenderComponent{
 		damage = new Image("res/sprites/damage.png");
 		health = new Image("res/sprites/health.png");
 		bar = new Image("res/sprites/bar.png");
-		//ttf = new TrueTypeFont(new Font("Comic Sans", Font.BOLD, 10), true);
 		healthState = "";
 		
 	}
@@ -34,7 +32,6 @@ public class HealthBarComponent extends RenderComponent{
 		health.draw(posX - health.getWidth()/2, pos.y - 30, (float)(owner.getHealth())/(float)(owner.getMaximumHealth()) * health.getWidth(), health.getHeight());
 		bar.draw(posX - bar.getWidth()/2, pos.y - 30);
 		
-		//ttf.drawString(posX -15, pos.y - 32, owner.getHealth() + "/" + owner.getMaximumHealth());
 		gr.drawString(healthState, posX - healthState.length() - 25, pos.y - 32);
 	}	
 
@@ -42,6 +39,12 @@ public class HealthBarComponent extends RenderComponent{
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {
 		
 		healthState = owner.getHealth() + "/" + owner.getMaximumHealth();
+		
+		//percentage
+		/*if (owner.getMaximumHealth() != 0) {	
+			//healthState = ((float)owner.getHealth() / (float)owner.getMaximumHealth()*100) + "%";
+			healthState = String.format("%.0f", ((float)owner.getHealth() / (float)owner.getMaximumHealth()*100)) + "%" ;
+		}*/ 
 		
 		
 	}
