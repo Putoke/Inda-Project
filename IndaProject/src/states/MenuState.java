@@ -77,9 +77,13 @@ public class MenuState extends BasicGameState {
 				fillAlpha = 175;
 				firstTime = false;
 			}
-			sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
-					TRANSITION_DELAY), new FadeInTransition(Color.black,
-							TRANSITION_DELAY));
+			if (Game.app.getFPS() >= 30) {
+				
+			
+				sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
+						TRANSITION_DELAY), new FadeInTransition(Color.black,
+								TRANSITION_DELAY));
+			}
 		}
 		
 		if (settingsButton.isMousePressed()) {

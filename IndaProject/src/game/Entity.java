@@ -150,4 +150,5 @@ public class Entity {
 	public float getY() {
 		return position.getY();
 	}
+	
 }

@@ -61,7 +61,7 @@ public class LevelGenerator {
 	private void createLevels() throws SlickException {
 		
 		//level 1
-		for(int i=0; i<10; i++){
+		for(int i=0; i<15; i++){
 			Entity enemy = new Entity("enemy");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy.png"));
 			enemy.AddComponent(temp);
@@ -76,7 +76,7 @@ public class LevelGenerator {
 		}
 		
 		//level 2
-		for (int i=0; i<10; i++) {
+		for (int i=0; i<15; i++) {
 			Entity enemy = new Entity("enemy2");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy2.png"));
 			enemy.AddComponent(temp);
@@ -90,7 +90,7 @@ public class LevelGenerator {
 		}
 		
 		//level 3
-		for (int i=0; i<10; i++) {
+		for (int i=0; i<15; i++) {
 			Entity enemy = new Entity("enemy3");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy3.png"));
 			enemy.AddComponent(temp);
@@ -104,7 +104,7 @@ public class LevelGenerator {
 		}
 		
 		//level 4
-		for (int i=0; i<10; i++) {
+		for (int i=0; i<15; i++) {
 			Entity enemy = new Entity("enemy4");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy4.png"));
 			enemy.AddComponent(temp);
@@ -118,7 +118,7 @@ public class LevelGenerator {
 		}
 		
 		//level 5
-		for (int i=0; i<10; i++) {
+		for (int i=0; i<15; i++) {
 			Entity enemy = new Entity("enemy5");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy5.png"));
 			enemy.AddComponent(temp);
@@ -149,18 +149,24 @@ public class LevelGenerator {
 	private void setPosition(Entity enemy, ImageRenderComponent temp ){
 		Random random = new Random();
 		int side = random.nextInt(4) + 1;
+		//int side = 1;
+		//left
 		if(side == 1){
-			enemy.setPosition(new Vector2f(0-temp.getImage().getWidth(), random.nextInt(Game.app.getHeight())));
+			enemy.setPosition(new Vector2f(0-temp.getImage().getWidth() - random.nextInt(Game.app.getWidth()/3), random.nextInt(Game.app.getHeight())));
 		}
+		//bottom
 		if(side == 2){
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), Game.app.getHeight() - temp.getRadius()*2+temp.getImage().getHeight()));
+			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), Game.app.getHeight() - temp.getRadius()*2+temp.getImage().getHeight() + random.nextInt(Game.app.getHeight()/2)));
 		}
+		//right
 		if(side == 3){
-			enemy.setPosition(new Vector2f(Game.app.getWidth() - temp.getRadius()*2 +temp.getImage().getWidth() , random.nextInt(Game.app.getHeight())));
+			enemy.setPosition(new Vector2f(Game.app.getWidth() - temp.getRadius()*2 +temp.getImage().getWidth() + random.nextInt(Game.app.getWidth()/3) , random.nextInt(Game.app.getHeight())));
 		}
+		//top
 		if(side == 4){
-			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), 0 - temp.getImage().getHeight()));
+			enemy.setPosition(new Vector2f(random.nextInt(Game.app.getWidth()), 0 - temp.getImage().getHeight() - random.nextInt(Game.app.getHeight()/2)));
 		}
+		
 	}
 	
 	public int getCurrentLevel() {
