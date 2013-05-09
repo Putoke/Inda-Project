@@ -27,6 +27,7 @@ public class InGameState extends BasicGameState {
 	private ArrayList<Entity> entities;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
+	private static ArrayList<Entity> enemyShots;
 	private LevelGenerator levelGenerator;
 	public static Vector2f playerPosition;
 	public static float playerRadius;
@@ -40,6 +41,7 @@ public class InGameState extends BasicGameState {
 		entities = new ArrayList<Entity>();
 		shots = new ArrayList<Entity>();
 		enemies = new ArrayList<Entity>();
+		enemyShots = new ArrayList<Entity>();
 		finished = false;
 
 		//Add a background
@@ -91,6 +93,9 @@ public class InGameState extends BasicGameState {
 		for (Entity e : shots) {
 			e.render(gc, sb, g);
 		}
+		for(Entity e : enemyShots){
+			e.render(gc, sb, g);
+		}
 		
 		drawLevel(g);
 		
@@ -103,6 +108,7 @@ public class InGameState extends BasicGameState {
 		updateEntityArray(entities, gc, sb, delta);
 		updateEntityArray(shots, gc, sb, delta);
 		updateEntityArray(enemies, gc, sb, delta);
+		updateEntityArray(enemyShots, gc, sb, delta);
 		
 		for(Entity e1 : enemies){
 			//Check if enemy collides with house
@@ -131,6 +137,14 @@ public class InGameState extends BasicGameState {
 					
 				}
 			}
+			
+			for(Entity e2 : enemyShots){
+				if(collision(e2, entities.get(2))){
+					entities.get(2).damage(1);
+					e2.setHealth(0);
+				}
+			}
+			
 		}
 
 		Input input = gc.getInput();
@@ -186,7 +200,7 @@ public class InGameState extends BasicGameState {
 		return false;
 	}
 	
-	public static void addShot(float rotation, Vector2f position){
+	public static void addShot(float rotation, Vector2f position, int owner){
 		Entity newShot = new Entity("Shot");
 		try {
 			ImageRenderComponent temp = new ImageRenderComponent("Shot Image", new Image("res/sprites/shot.png"));
@@ -196,9 +210,14 @@ public class InGameState extends BasicGameState {
 		} catch (SlickException e) {
 			System.err.println("Couldn't load shot image.");
 		}
-		newShot.AddComponent(new ShotComponent("Shot", rotation, new Vector2f(position.x - newShot.getRadius(), position.y - newShot.getRadius())));
 		newShot.setHealth(1);
-		shots.add(newShot);
+		if(owner == 1){
+			newShot.AddComponent(new ShotComponent("Shot", rotation, new Vector2f(position.x - newShot.getRadius(), position.y - newShot.getRadius())));
+			shots.add(newShot);
+		} else if(owner == 2){
+			newShot.AddComponent(new ShotComponent("Shot", rotation, new Vector2f(position.x - newShot.getRadius(), position.y - newShot.getRadius()), 0.3f));
+			enemyShots.add(newShot);
+		}
 	}
 	
 	/**

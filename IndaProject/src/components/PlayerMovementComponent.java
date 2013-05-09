@@ -68,7 +68,7 @@ public class PlayerMovementComponent extends Component {
 		
 		if(Controller.isP1ButtonPressed("Shoot", input) && shotCounter >= shotDelay){
 			laserSound.play(0.8f, 0.1f);
-			InGameState.addShot(rotation, new Vector2f(position.x + owner.getRadius(), position.y + owner.getRadius()));
+			InGameState.addShot(rotation, new Vector2f(position.x + owner.getRadius(), position.y + owner.getRadius()), 1);
 			
 			try {
 				Animation anim = new Animation(new Image[]{new Image("res/buttons/back.png")},1000);

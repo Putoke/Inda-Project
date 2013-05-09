@@ -13,10 +13,14 @@ public class ShotComponent extends Component{
 	private float speed;
 	
 	public ShotComponent(String id, float rotation, Vector2f position){
+		this(id, rotation, position, 2.0f);
+	}
+	
+	public ShotComponent(String id, float rotation, Vector2f position, float speed){
 		this.id = id;
 		this.rotation = rotation + 90;
 		this.position = new Vector2f(position.x, position.y);
-		speed = 2.0f;
+		this.speed = speed;
 	}
 	
 	public void update(GameContainer gc, StateBasedGame sb, int delta) {

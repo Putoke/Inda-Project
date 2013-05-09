@@ -32,7 +32,7 @@ public class Game extends StateBasedGame {
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-		
+
 		hitBox = false;
 		music.loop();
 		music.setVolume(0.1f);
