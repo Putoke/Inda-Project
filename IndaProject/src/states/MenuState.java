@@ -42,12 +42,12 @@ public class MenuState extends BasicGameState {
 		
 		settingsButton = new MenuButton("settingsButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight), new Image("res/buttons/settings.png"));
 		buttons.add(settingsButton);
-
-		exitButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 125), new Image("res/buttons/exit.png"));
-		buttons.add(exitButton);
 		
-		helpButton = new MenuButton("helpButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 250), new Image("res/buttons/exit.png"));
+		helpButton = new MenuButton("helpButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 125), new Image("res/buttons/exit.png"));
 		buttons.add(helpButton);
+
+		exitButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 250), new Image("res/buttons/exit.png"));
+		buttons.add(exitButton);
 
 	}
 
