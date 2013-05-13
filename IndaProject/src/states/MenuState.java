@@ -27,7 +27,7 @@ public class MenuState extends BasicGameState {
 	private static final int TRANSITION_DELAY = 0;
 
 	private ArrayList<MenuButton> buttons;
-	private MenuButton playButton, settingsButton, exitButton, helpButton, newgameButton, gameButton;
+	private MenuButton settingsButton, exitButton, helpButton, playButton;
 	public boolean firstTime;
 	public static int fillAlpha;
 	
@@ -40,8 +40,8 @@ public class MenuState extends BasicGameState {
 		//newgameButton = new MenuButton("newgameButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/newgame.png"));
 		//playButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/play.png"));
 		
-		gameButton = new MenuButton("gameButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/newgame.png"));
-		buttons.add(gameButton);
+		playButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/newgame.png"));
+		buttons.add(playButton);
 		
 		settingsButton = new MenuButton("settingsButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight), new Image("res/buttons/settings.png"));
 		buttons.add(settingsButton);
@@ -78,7 +78,7 @@ public class MenuState extends BasicGameState {
 			button.update(gc, sb, delta);
 		}
 		
-		if (gameButton.isMousePressed()) {
+		if (playButton.isMousePressed()) {
 			if (firstTime) {
 				fillAlpha = 175;
 				firstTime = false;
@@ -90,7 +90,7 @@ public class MenuState extends BasicGameState {
 				sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
 						TRANSITION_DELAY), new FadeInTransition(Color.black,
 								TRANSITION_DELAY));
-				gameButton.setImage(new Image("res/buttons/play.png"));
+				playButton.setImage(new Image("res/buttons/play.png"));
 			}
 		}
 		
