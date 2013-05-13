@@ -125,7 +125,6 @@ public class InGameState extends BasicGameState {
 				entities.get(2).damage(e1.getDamage());
 				e1.setHealth(0);
 				if(entities.get(2).getHealth() <= 0){
-					//System.exit(0);
 					//player dead
 					sb.enterState(LoseState.ID);
 				}
@@ -138,20 +137,20 @@ public class InGameState extends BasicGameState {
 				}
 			}
 			
-			for(Entity e2 : enemyShots){
-				if(collision(e2, entities.get(2))){
-					entities.get(2).damage(1);
-					e2.setHealth(0);
+		}
+		
+		for(Entity e2 : enemyShots){
+			if(collision(e2, entities.get(2))){
+				entities.get(2).damage(1);
+				e2.setHealth(0);
+				if(entities.get(2).getHealth() <= 0){
+					//player dead
+					sb.enterState(LoseState.ID);
 				}
 			}
-			
 		}
 
 		Input input = gc.getInput();
-		if (Controller.isShortcutPressed("Exit", input))
-			System.exit(0);
-		if (Controller.isShortcutPressed("Fullscreen", input))
-			Game.app.setFullscreen(!Game.app.isFullscreen());
 		if (Controller.isShortcutPressed("Menu", input)) {
 			sb.enterState(MenuState.ID, new FadeOutTransition(Color.black, TRANSITION_DELAY), new FadeInTransition(Color.black,
 					TRANSITION_DELAY));

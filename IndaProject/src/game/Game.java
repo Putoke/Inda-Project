@@ -9,6 +9,7 @@ import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import states.HelpState;
 import states.InGameState;
 import states.LoseState;
 import states.MenuState;
@@ -50,6 +51,7 @@ public class Game extends StateBasedGame {
 		addState(new SettingsState());
 		addState(new WinState());
 		addState(new LoseState());
+		addState(new HelpState());
 		
 		
 	}

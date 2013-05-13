@@ -44,7 +44,7 @@ public class HealthBarComponent extends RenderComponent{
 		/*if (owner.getMaximumHealth() != 0) {	
 			//healthState = ((float)owner.getHealth() / (float)owner.getMaximumHealth()*100) + "%";
 			healthState = String.format("%.0f", ((float)owner.getHealth() / (float)owner.getMaximumHealth()*100)) + "%" ;
-		}*/ 
+		}*/
 		
 		
 	}

@@ -68,7 +68,6 @@ public final class Controller {
 		addP1Button("Shoot", Input.MOUSE_LEFT_BUTTON);
 
 		shortcuts = new HashMap<String, Integer>();
-		addShortcut("Fullscreen", Input.KEY_F11);
 		addShortcut("Menu", Input.KEY_ESCAPE);
 		addShortcut("Hitbox", Input.KEY_F5);
 	}

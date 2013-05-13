@@ -27,7 +27,7 @@ public class MenuState extends BasicGameState {
 	private static final int TRANSITION_DELAY = 0;
 
 	private ArrayList<MenuButton> buttons;
-	private MenuButton playButton, settingsButton, exitButton;
+	private MenuButton playButton, settingsButton, exitButton, helpButton;
 	private boolean firstTime;
 	public static int fillAlpha;
 	
@@ -45,6 +45,9 @@ public class MenuState extends BasicGameState {
 
 		exitButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 125), new Image("res/buttons/exit.png"));
 		buttons.add(exitButton);
+		
+		helpButton = new MenuButton("helpButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 250), new Image("res/buttons/exit.png"));
+		buttons.add(helpButton);
 
 	}
 
@@ -88,6 +91,12 @@ public class MenuState extends BasicGameState {
 		
 		if (settingsButton.isMousePressed()) {
 			sb.enterState(SettingsState.ID, new FadeOutTransition(Color.black,
+					TRANSITION_DELAY), new FadeInTransition(Color.black,
+							TRANSITION_DELAY));
+		}
+		
+		if (helpButton.isMousePressed()) {
+			sb.enterState(HelpState.ID, new FadeOutTransition(Color.black,
 					TRANSITION_DELAY), new FadeInTransition(Color.black,
 							TRANSITION_DELAY));
 		}
