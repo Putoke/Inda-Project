@@ -83,7 +83,7 @@ public class LevelGenerator {
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.1f));
 			setPosition(enemy, temp);
-			enemy.setHealth(10);
+			enemy.setHealth(12);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(7);
 			enemies.get(1).add(enemy);
@@ -95,53 +95,53 @@ public class LevelGenerator {
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy3.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.1f));
 			setPosition(enemy, temp);
-			enemy.setHealth(10);
+			enemy.setHealth(15);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(7);
+			enemy.setDamage(9);
 			enemies.get(2).add(enemy);
 		}
 		
 		//level 4
-		for (int i=0; i<15; i++) {
+		for (int i=0; i<12; i++) {
 			Entity enemy = new Entity("enemy4");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy4.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.12f));
 			setPosition(enemy, temp);
 			enemy.setHealth(10);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(7);
+			enemy.setDamage(12);
 			enemies.get(3).add(enemy);
 		}
 		
 		//level 5
-		for (int i=0; i<15; i++) {
+		for (int i=0; i<11; i++) {
 			Entity enemy = new Entity("enemy5");
 			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/enemy5.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
-			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.07f));
+			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.15f));
 			setPosition(enemy, temp);
-			enemy.setHealth(10);
+			enemy.setHealth(8);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(7);
+			enemy.setDamage(8);
 			enemies.get(4).add(enemy);
 		}
 		
 		//level 6 BOSS
 		for (int i=0; i<1; i++) {
 			Entity enemy = new Entity("enemy6");
-			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/boss.png"));
+			ImageRenderComponent temp = new ImageRenderComponent("EnemyRender", new Image("res/sprites/enemies/boss2.png"));
 			enemy.AddComponent(temp);
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.09f));
 			setPosition(enemy, temp);
 			enemy.setHealth(500);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
-			enemy.setDamage(200);
+			enemy.setDamage(201);
 			enemies.get(5).add(enemy);
 		}
 	}
