@@ -141,7 +141,7 @@ public class InGameState extends BasicGameState {
 		
 		for(Entity e2 : enemyShots){
 			if(collision(e2, entities.get(2))){
-				entities.get(2).damage(1);
+				entities.get(2).damage(3);
 				e2.setHealth(0);
 				if(entities.get(2).getHealth() <= 0){
 					//player dead

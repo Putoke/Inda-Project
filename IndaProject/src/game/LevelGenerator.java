@@ -140,7 +140,7 @@ public class LevelGenerator {
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.09f));
 			setPosition(enemy, temp);
-			enemy.setHealth(10000);
+			enemy.setHealth(1000);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(200);
 			enemies.get(5).add(enemy);
