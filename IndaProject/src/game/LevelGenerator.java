@@ -13,7 +13,7 @@ import components.ImageRenderComponent;
 
 public class LevelGenerator {
 	
-	private static final int levels = 7;
+	private static final int levels = 6;
 	private int currentLevel;
 	private ArrayList<ArrayList<Entity>> enemies;
 	private boolean completed;
@@ -51,7 +51,6 @@ public class LevelGenerator {
 			for (Entity e : enemies.get(currentLevel-1)) {
 				e = null;
 			}
-			//return enemies.get(currentLevel-1);
 			return temp;
 			
 		}
@@ -140,7 +139,7 @@ public class LevelGenerator {
 			enemy.setRadius(temp.getRadius());
 			enemy.AddComponent(new EnemyMovementComponent("EnemyMovement", 0.09f));
 			setPosition(enemy, temp);
-			enemy.setHealth(1000);
+			enemy.setHealth(200);
 			enemy.AddComponent(new HealthBarComponent("EnemyHealthBar"));
 			enemy.setDamage(200);
 			enemies.get(5).add(enemy);

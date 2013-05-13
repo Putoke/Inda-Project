@@ -42,4 +42,8 @@ public class ImageRenderComponent extends RenderComponent {
 	public Image getImage() {
 		return image;
 	}
+	
+	public void setImage(Image image) {
+		this.image = image;
+	}
 }

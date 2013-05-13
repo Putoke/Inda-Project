@@ -33,7 +33,7 @@ public class InGameState extends BasicGameState {
 	public static float playerRadius;
 	public static boolean finished;
 	private static final int TRANSITION_DELAY = 0;
-	private static final int STARTING_LEVEL = 1;
+	private static final int STARTING_LEVEL = 6;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
@@ -126,7 +126,8 @@ public class InGameState extends BasicGameState {
 				e1.setHealth(0);
 				if(entities.get(2).getHealth() <= 0){
 					//player dead
-					sb.enterState(LoseState.ID);
+					sb.enterState(LoseState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
+							200));
 				}
 			}
 			for(Entity e2 : shots){
@@ -145,7 +146,8 @@ public class InGameState extends BasicGameState {
 				e2.setHealth(0);
 				if(entities.get(2).getHealth() <= 0){
 					//player dead
-					sb.enterState(LoseState.ID);
+					sb.enterState(LoseState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
+							200));
 				}
 			}
 		}
@@ -181,7 +183,8 @@ public class InGameState extends BasicGameState {
 	
 	private void checkFinished(StateBasedGame sb) {
 		if (finished) {
-			sb.enterState(WinState.ID);
+			sb.enterState(WinState.ID, new FadeOutTransition(Color.black, 200), new FadeInTransition(Color.black,
+					200));
 		}
 	}
 	

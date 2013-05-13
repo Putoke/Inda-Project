@@ -28,7 +28,7 @@ public class LoseState extends BasicGameState {
 		ttf = new TrueTypeFont(new Font("Comic Sans", Font.ITALIC, 50), true);
 		buttons = new ArrayList<MenuButton>();
 		
-		playButton = new MenuButton("play", new Vector2f(Game.centerWidth - 300 , Game.centerHeight -150), new Image("res/buttons/play.png"));
+		playButton = new MenuButton("play", new Vector2f(Game.centerWidth - 300 , Game.centerHeight -150), new Image("res/buttons/newgame.png"));
 		buttons.add(playButton);
 		
 		exitButton = new MenuButton("quit", new Vector2f(Game.centerWidth +150, Game.centerHeight + -150), new Image("res/buttons/exit.png"));

@@ -56,4 +56,9 @@ public class MenuButton extends Entity{
 	public Image getImage() {
 		return image;
 	}
+	
+	public void setImage(Image image) {
+		this.image = image;
+		((ImageRenderComponent) getComponent("button_image")).setImage(image);
+	}
 }

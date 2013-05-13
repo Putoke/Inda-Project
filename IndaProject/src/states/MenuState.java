@@ -27,8 +27,8 @@ public class MenuState extends BasicGameState {
 	private static final int TRANSITION_DELAY = 0;
 
 	private ArrayList<MenuButton> buttons;
-	private MenuButton playButton, settingsButton, exitButton, helpButton;
-	private boolean firstTime;
+	private MenuButton playButton, settingsButton, exitButton, helpButton, newgameButton, gameButton;
+	public boolean firstTime;
 	public static int fillAlpha;
 	
 	@Override
@@ -37,13 +37,16 @@ public class MenuState extends BasicGameState {
 		firstTime = true;
 		fillAlpha = 255;
 		
-		playButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/play.png"));
-		buttons.add(playButton);
+		//newgameButton = new MenuButton("newgameButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/newgame.png"));
+		//playButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/play.png"));
+		
+		gameButton = new MenuButton("gameButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight - 125), new Image("res/buttons/newgame.png"));
+		buttons.add(gameButton);
 		
 		settingsButton = new MenuButton("settingsButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight), new Image("res/buttons/settings.png"));
 		buttons.add(settingsButton);
 		
-		helpButton = new MenuButton("helpButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 125), new Image("res/buttons/exit.png"));
+		helpButton = new MenuButton("helpButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 125), new Image("res/buttons/help.png"));
 		buttons.add(helpButton);
 
 		exitButton = new MenuButton("playButton", new Vector2f(Game.centerWidth - 100, Game.centerHeight + 250), new Image("res/buttons/exit.png"));
@@ -75,10 +78,11 @@ public class MenuState extends BasicGameState {
 			button.update(gc, sb, delta);
 		}
 		
-		if (playButton.isMousePressed()) {
+		if (gameButton.isMousePressed()) {
 			if (firstTime) {
 				fillAlpha = 175;
 				firstTime = false;
+				
 			}
 			if (Game.app.getFPS() >= 30) {
 				
@@ -86,6 +90,7 @@ public class MenuState extends BasicGameState {
 				sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,
 						TRANSITION_DELAY), new FadeInTransition(Color.black,
 								TRANSITION_DELAY));
+				gameButton.setImage(new Image("res/buttons/play.png"));
 			}
 		}
 		
@@ -111,7 +116,7 @@ public class MenuState extends BasicGameState {
 					TRANSITION_DELAY), new FadeInTransition(Color.black,
 							TRANSITION_DELAY));
 		}
-
+		
 	}
 
 	@Override
