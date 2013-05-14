@@ -36,7 +36,7 @@ public class InGameState extends BasicGameState {
 	public static float playerRadius;
 	public static boolean finished;
 	private static final int TRANSITION_DELAY = 0;
-	private static final int STARTING_LEVEL = 6;
+	private static final int STARTING_LEVEL = 1;
 	
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb) throws SlickException {
