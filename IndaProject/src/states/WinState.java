@@ -17,14 +17,17 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class WinState extends BasicGameState {
 	public static final int ID = 5;
-	private TrueTypeFont ttf;
+	private TrueTypeFont ttfItalic, ttfBold, ttfPlain;
 	private ArrayList<MenuButton> buttons;
 	private MenuButton playButton, exitButton;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sb)
 			throws SlickException {
-		ttf = new TrueTypeFont(new Font("Comic Sans", Font.ITALIC, 50), true);
+		ttfItalic = new TrueTypeFont(new Font("Comic Sans", Font.ITALIC, 50), true);
+		ttfPlain = new TrueTypeFont(new Font("Verdana", Font.PLAIN, 22	), true);
+		ttfBold = new TrueTypeFont(new Font("Verdana", Font.BOLD, 30), true);
+		
 		buttons = new ArrayList<MenuButton>();
 		
 		playButton = new MenuButton("play", new Vector2f(Game.centerWidth - 300 , Game.centerHeight -150), new Image("res/buttons/newgame.png"));
@@ -39,7 +42,9 @@ public class WinState extends BasicGameState {
 	public void render(GameContainer gc, StateBasedGame sb, Graphics g)
 			throws SlickException {
 		
-		ttf.drawString(Game.centerWidth - 150, Game.centerHeight/3, "GAME WON!");
+		ttfItalic.drawString(Game.centerWidth - 150, Game.centerHeight/3, "GAME WON!");
+		ttfBold.drawString(Game.centerWidth - 300, Game.centerHeight+ 100, "Player: " + InGameState.getPlayer().getHealth() + "/" + InGameState.getPlayer().getMaximumHealth() + " HP");
+		ttfBold.drawString(Game.centerWidth + 50, Game.centerHeight+ 100, "House: " + InGameState.getHouse().getHealth() + "/" + InGameState.getHouse().getMaximumHealth() + " HP");
 		
 		for (MenuButton button : buttons) {
 			button.render(gc, sb, g);

@@ -79,12 +79,13 @@ public class MenuState extends BasicGameState {
 		}
 		
 		if (playButton.isMousePressed()) {
-			if (firstTime) {
-				fillAlpha = 175;
-				firstTime = false;
-				
-			}
+
 			if (Game.app.getFPS() >= 30) {
+				
+				if (firstTime) {
+					fillAlpha = 175;
+					firstTime = false;
+				}
 				
 			
 				sb.enterState(InGameState.ID, new FadeOutTransition(Color.black,

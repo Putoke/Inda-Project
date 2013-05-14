@@ -29,7 +29,7 @@ public class HelpState extends BasicGameState{
 	private Image player, house, enemy;
 	private TrueTypeFont ttfBold, ttfPlain;
 	private int playerX, playerY, houseX, houseY, enemyX, enemyY;
-	private String helpText1, helpText2, helpText3;
+	private String helpText1, helpText2, helpText3, helpText4;
 
 	
 	
@@ -54,6 +54,7 @@ public class HelpState extends BasicGameState{
 		helpText1 = "1. The goal of this game is to destroy the incoming waves of enemies and to keep you and your house safe.";
 		helpText2 = "2. You will lose if the enemies kill you or destroy your house.";
 		helpText3 = "3. Control your player with 'W,A,S,D' or 'ARROW KEYS'. Shoot bullets with 'LEFT MOUSEBUTTON'.";
+		helpText4 = "4. You can press 'ESCAPE' to pause the game at any time";
 		
 		
 		buttons = new ArrayList<MenuButton>();
@@ -114,6 +115,7 @@ public class HelpState extends BasicGameState{
 		ttfPlain.drawString(playerX, playerY + house.getHeight()*1.5f, helpText1, Color.red);
 		ttfPlain.drawString(playerX, playerY + house.getHeight()*1.5f + 50, helpText2, Color.red);
 		ttfPlain.drawString(playerX, playerY + house.getHeight()*1.5f + 100, helpText3, Color.red);
+		ttfPlain.drawString(playerX, playerY + house.getHeight()*1.5f + 150, helpText4, Color.red);
 	}
 
 }

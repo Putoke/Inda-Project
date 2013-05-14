@@ -25,6 +25,9 @@ public class InGameState extends BasicGameState {
 
 	public static final int ID = 2;
 	private ArrayList<Entity> entities;
+	private static Entity player;
+	private static Entity base;
+	private static Entity background;
 	private static ArrayList<Entity> shots;
 	private ArrayList<Entity> enemies;
 	private static ArrayList<Entity> enemyShots;
@@ -45,14 +48,14 @@ public class InGameState extends BasicGameState {
 		finished = false;
 
 		//Add a background
-		Entity background = new Entity("background");
+		background = new Entity("background");
 		background.AddComponent(new ImageRenderComponent("BackgroundRender",
 				new Image("res/sprites/background.png")));
 		background.setHealth(1);
 		entities.add(background);
 		
 		//add a base
-		Entity base = new Entity("base");
+		base = new Entity("base");
 		ImageRenderComponent temp = new ImageRenderComponent("house", new Image("res/sprites/house.png"));
 		base.AddComponent(temp);
 		base.setRadius(temp.getRadius());
@@ -63,7 +66,7 @@ public class InGameState extends BasicGameState {
 
 
 		//Add a player		
-		Entity player = new Entity("player");
+		player = new Entity("player");
 		ImageRenderComponent temp2 = new ImageRenderComponent("playerRender", new Image("res/sprites/hero/hero1.png"));
 		//temp2 = new AnimationRenderComponent("playerRender", new Image[] {new Image("res/sprites/hero/hero1.png")}, 300);
 		player.AddComponent(temp2);
@@ -245,9 +248,21 @@ public class InGameState extends BasicGameState {
 		return enemies;
 	}
 	
-	public void drawLevel(Graphics g){
+	private void drawLevel(Graphics g){
 		String level = "Level: " +levelGenerator.getCurrentLevel();
 		g.drawString(level, 50, 50);
+	}
+	
+	public static Entity getPlayer() {
+		return player;
+	}
+	
+	public static Entity getHouse() {
+		return base;
+	}
+	
+	public static Entity getBackground() {
+		return background;
 	}
 	
 }
