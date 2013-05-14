@@ -75,7 +75,7 @@ public class Game extends StateBasedGame {
 			app = new AppGameContainer(new Game());
 			app.setDisplayMode(dispMode.getWidth(), dispMode.getHeight(), true);
 			app.setTargetFrameRate(60);
-			app.setShowFPS(true);
+			app.setShowFPS(false);
 			app.setSmoothDeltas(true);
 			app.setUpdateOnlyWhenVisible(true);
 			app.start();

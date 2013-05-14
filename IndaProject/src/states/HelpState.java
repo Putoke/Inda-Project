@@ -59,7 +59,7 @@ public class HelpState extends BasicGameState{
 		
 		buttons = new ArrayList<MenuButton>();
 		backButton = new MenuButton("backButton", new Vector2f(Game.centerWidth - 100,
-				Game.centerHeight + 375), new Image("res/buttons/back.png"));
+				Game.centerHeight + 300), new Image("res/buttons/back.png"));
 		buttons.add(backButton);
 		
 	}
