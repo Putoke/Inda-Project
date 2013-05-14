@@ -35,8 +35,8 @@ public class EnemyMovementComponent extends Component{
 			shotCounter = 0;
 		}
 				
-		float dx = position.x - InGameState.playerPosition.x + InGameState.playerRadius;
-		float dy = position.y - InGameState.playerPosition.y + InGameState.playerRadius;
+		float dx = position.x + owner.getRadius() - InGameState.playerPosition.x + InGameState.playerRadius;
+		float dy = position.y + owner.getRadius() - InGameState.playerPosition.y + InGameState.playerRadius;
 		float distance = dx * dx + dy * dy;
 		dx = position.x - Game.centerWidth;
 		dy = position.y - Game.centerHeight;
@@ -45,7 +45,7 @@ public class EnemyMovementComponent extends Component{
 		if(distance2 < distance){
 			rotation = (float) Math.toDegrees(Math.atan2(position.y - Game.centerHeight, position.x - Game.centerWidth)) + 90;
 		} else {
-			rotation = (float) Math.toDegrees(Math.atan2(position.y - InGameState.playerPosition.y, position.x - InGameState.playerPosition.x)) + 90;
+			rotation = (float) Math.toDegrees(Math.atan2(position.y + owner.getRadius() - InGameState.playerPosition.y, position.x + owner.getRadius() - InGameState.playerPosition.x)) + 90;
 		}
 		
 		float hip = -speed * delta;
